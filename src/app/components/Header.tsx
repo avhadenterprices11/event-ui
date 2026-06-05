@@ -73,7 +73,7 @@ export function Header() {
                <Link 
                 to="/cart" 
                 className={`transition-all transform hover:scale-110 ${location.pathname === '/cart' ? 'text-[#C6A75E]' : 'text-white/60 hover:text-white'}`}
-                title="Portfolio"
+                title="Cart"
                >
                  <ShoppingBag size={20} />
                </Link>

@@ -51,7 +51,7 @@ export default function CartPage() {
                className="text-6xl md:text-[6rem] lg:text-[7rem] font-serif font-light tracking-tighter leading-[0.9]" 
                style={{ fontFamily: 'var(--font-heading)' }}
             >
-               Your <span className="italic text-white/40">Selections.</span>
+               <span className="italic text-white">Selections.</span>
             </motion.h1>
         </header>
 

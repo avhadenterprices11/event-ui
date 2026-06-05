@@ -31,7 +31,7 @@ import QuoteBuilder from './pages/QuoteBuilder';
 import VendorNetwork from './pages/VendorNetwork';
 import ClientPortal from './pages/ClientPortal';
 import EventTimeline from './pages/EventTimeline';
-import MissionControl from './pages/MissionControl';
+
 import SensoryBoard from './pages/SensoryBoard';
 import ClientDashboard from './pages/ClientDashboard';
 import GiftShop from './pages/GiftShop';
@@ -108,10 +108,7 @@ export const router = createBrowserRouter([
         path: 'event-timeline',
         Component: EventTimeline,
       },
-      {
-        path: 'mission-control',
-        Component: MissionControl,
-      },
+
       {
         path: 'sensory-board',
         Component: SensoryBoard,

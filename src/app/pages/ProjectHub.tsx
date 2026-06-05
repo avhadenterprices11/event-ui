@@ -18,14 +18,14 @@ const projectPages = [
     category: 'CURATION'
   },
   {
-    title: 'Portfolio (Cart)',
+    title: 'Cart',
     description: 'Luxury procurement interface with real-time summary calculation and item management.',
     path: '/cart',
     icon: <ShoppingBag className="w-6 h-6" />,
     category: 'PROCUREMENT'
   },
   {
-    title: 'Cinematic Portfolio',
+    title: 'Our Portfolio',
     description: 'Netflix-style horizontal scroll experience with video motion previews and category chips.',
     path: '/portfolio',
     icon: <Briefcase className="w-6 h-6" />,
@@ -101,13 +101,7 @@ const projectPages = [
     icon: <Calendar className="w-6 h-6" />,
     category: 'MANAGEMENT'
   },
-  {
-    title: 'Mission Control',
-    description: 'A premium live dashboard for production metrics, artisan collective communication, and strategic objectives.',
-    path: '/mission-control',
-    icon: <LayoutGrid className="w-6 h-6" />,
-    category: 'CONTROL'
-  },
+
   {
     title: 'Sensory Board',
     description: 'Tactile visualizer for layering olfactory, tactile, and sonic signatures into a unified event soul.',

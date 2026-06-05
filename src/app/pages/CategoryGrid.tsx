@@ -3,26 +3,26 @@ import { useState } from 'react';
 import { Filter as FilterIcon, Check, X, ArrowRight, SlidersHorizontal, Grid, List as ListIcon } from 'lucide-react';
 
 const products = [
-  { id: 1, name: 'Marquise Crystal Flute', category: 'Tabletop', price: 850, material: 'Hand-blown Crystal', image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600' },
-  { id: 2, name: 'Obsidian Tray', category: 'Decor', price: 1200, material: 'Polished Stone', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=600' },
-  { id: 3, name: 'Silk Napkin Set', category: 'Tabletop', price: 450, material: 'Mulberry Silk', image: 'https://images.unsplash.com/photo-1595428774751-fe83478e762c?q=80&w=600' },
-  { id: 4, name: 'Heritage Candelabra', category: 'Lighting', price: 3400, material: 'Sterling Silver', image: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?q=80&w=600' },
-  { id: 5, name: 'Velvet Ottoman', category: 'Furniture', price: 2800, material: 'Italian Velvet', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=600' },
-  { id: 6, name: 'Golden Decanter', category: 'Tabletop', price: 1800, material: '24k Gold Leaf', image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=600' },
-  { id: 7, name: 'Alabaster Sculpture', category: 'Decor', price: 5200, material: 'Aged Alabaster', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600' },
-  { id: 8, name: 'Linen Throw', category: 'Textiles', price: 650, material: 'French Linen', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600' },
+  { id: 1, name: 'Marquise Crystal Flute', collection: 'Tabletop', price: 850, material: 'Hand-blown Crystal', image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600' },
+  { id: 2, name: 'Obsidian Tray', collection: 'Decor', price: 1200, material: 'Polished Stone', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=600' },
+  { id: 3, name: 'Silk Napkin Set', collection: 'Tabletop', price: 450, material: 'Mulberry Silk', image: 'https://images.unsplash.com/photo-1595428774751-fe83478e762c?q=80&w=600' },
+  { id: 4, name: 'Heritage Candelabra', collection: 'Lighting', price: 3400, material: 'Sterling Silver', image: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?q=80&w=600' },
+  { id: 5, name: 'Velvet Ottoman', collection: 'Furniture', price: 2800, material: 'Italian Velvet', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=600' },
+  { id: 6, name: 'Golden Decanter', collection: 'Tabletop', price: 1800, material: '24k Gold Leaf', image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=600' },
+  { id: 7, name: 'Alabaster Sculpture', collection: 'Decor', price: 5200, material: 'Aged Alabaster', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600' },
+  { id: 8, name: 'Linen Throw', collection: 'Textiles', price: 650, material: 'French Linen', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600' },
 ];
 
-const categories = ['All', 'Tabletop', 'Decor', 'Lighting', 'Furniture', 'Textiles'];
+const collections = ['All', 'Tabletop', 'Decor', 'Lighting', 'Furniture', 'Textiles'];
 
-export default function CategoryGrid() {
-  const [activeCategory, setActiveCategory] = useState('All');
+export default function CollectionPage() {
+  const [activeCollection, setActiveCollection] = useState('All');
   const [priceRange, setPriceRange] = useState(6000);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const filteredProducts = products.filter(p => 
-    (activeCategory === 'All' || p.category === activeCategory) &&
+    (activeCollection === 'All' || p.collection === activeCollection) &&
     (p.price <= priceRange)
   );
 
@@ -47,10 +47,10 @@ export default function CategoryGrid() {
             >
                <div className="flex items-center gap-6">
                   <div className="w-16 h-px bg-[#C6A75E]/50" />
-                  <span className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-[0.4em]">Inventory of Excellence</span>
+                  <span className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-[0.4em]">Masterpiece Portfolios</span>
                </div>
                <h1 className="text-6xl md:text-[6rem] lg:text-[7rem] font-serif font-light tracking-tighter leading-[0.9]" style={{ fontFamily: 'var(--font-heading)' }}>
-                  The <span className="italic text-white/40">Curated</span> <br /> Catalog.
+                  The <span className="italic text-white/40">Curated</span> <br /> Collection.
                </h1>
             </motion.div>
             
@@ -98,18 +98,18 @@ export default function CategoryGrid() {
                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                    className="w-full lg:w-72 shrink-0 space-y-16 lg:sticky lg:top-40 h-fit"
                  >
-                    {/* Categories */}
+                    {/* Collections */}
                     <div className="space-y-6">
-                       <h3 className="text-[9px] font-bold uppercase tracking-[0.4em] text-[#C6A75E] mb-8">Classification</h3>
+                       <h3 className="text-[9px] font-bold uppercase tracking-[0.4em] text-[#C6A75E] mb-8">Collections</h3>
                        <div className="space-y-1 border-t border-white/5">
-                          {categories.map((cat) => (
+                          {collections.map((col) => (
                             <button
-                              key={cat}
-                              onClick={() => setActiveCategory(cat)}
-                              className={`w-full flex items-center justify-between py-4 transition-all duration-500 border-b border-white/5 group ${activeCategory === cat ? 'text-white' : 'text-white/30 hover:text-white/80'}`}
+                              key={col}
+                              onClick={() => setActiveCollection(col)}
+                              className={`w-full flex items-center justify-between py-4 transition-all duration-500 border-b border-white/5 group ${activeCollection === col ? 'text-white' : 'text-white/30 hover:text-white/80'}`}
                             >
-                               <span className="text-[10px] font-bold uppercase tracking-[0.3em]">{cat}</span>
-                               {activeCategory === cat ? (
+                               <span className="text-[10px] font-bold uppercase tracking-[0.3em]">{col}</span>
+                               {activeCollection === col ? (
                                  <Check size={14} className="text-[#C6A75E]" />
                                ) : (
                                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
@@ -145,14 +145,14 @@ export default function CategoryGrid() {
                     </div>
 
                     {/* Active Refinements */}
-                    {activeCategory !== 'All' && (
+                    {activeCollection !== 'All' && (
                        <div className="space-y-4">
                           <div className="flex items-center gap-3">
                              <FilterIcon size={12} className="text-[#C6A75E]" />
-                             <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/50">Active Filter</span>
+                             <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/50">Active Collection</span>
                           </div>
-                          <div className="px-4 py-2 bg-white/5 rounded-full text-[9px] font-bold uppercase tracking-[0.3em] border border-white/10 flex items-center justify-between w-fit gap-4 group cursor-pointer hover:bg-white/10 transition-colors" onClick={() => setActiveCategory('All')}>
-                             {activeCategory} <X size={12} className="text-white/40 group-hover:text-white" />
+                          <div className="px-4 py-2 bg-white/5 rounded-full text-[9px] font-bold uppercase tracking-[0.3em] border border-white/10 flex items-center justify-between w-fit gap-4 group cursor-pointer hover:bg-white/10 transition-colors" onClick={() => setActiveCollection('All')}>
+                             {activeCollection} <X size={12} className="text-white/40 group-hover:text-white" />
                           </div>
                        </div>
                     )}
@@ -206,7 +206,7 @@ export default function CategoryGrid() {
                           {/* Content Container */}
                           <div className={`pt-8 space-y-4 ${viewMode === 'list' ? 'pt-0 flex-1' : ''}`}>
                              <div className="flex items-center justify-between">
-                                <span className="text-[#C6A75E] text-[9px] font-bold uppercase tracking-[0.4em]">{product.category}</span>
+                                <span className="text-[#C6A75E] text-[9px] font-bold uppercase tracking-[0.4em]">{product.collection}</span>
                                 <span className={`font-serif transition-colors duration-500 ${viewMode === 'list' ? 'text-3xl text-white' : 'text-xl text-white group-hover:text-[#C6A75E]'}`}>
                                    ${product.price}
                                 </span>
@@ -250,7 +250,7 @@ export default function CategoryGrid() {
                     </div>
                     <p className="text-white/40 text-xl font-serif">No artifacts match your refined criteria.</p>
                     <button 
-                      onClick={() => {setActiveCategory('All'); setPriceRange(6000);}}
+                      onClick={() => {setActiveCollection('All'); setPriceRange(6000);}}
                       className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-[0.3em] border-b border-[#C6A75E]/30 pb-1 hover:text-white hover:border-white transition-colors"
                     >
                       Reset Refinement

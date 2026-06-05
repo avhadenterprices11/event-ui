@@ -201,15 +201,15 @@ export function HeroSection() {
 
           {/* Glass Detail Point */}
           <motion.div
-            className="absolute top-20 right-0 xl:right-[-20px] w-48 xl:w-56 p-6 bg-white/5 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/10 z-30"
+            className="absolute top-20 right-0 xl:right-[-20px] w-48 xl:w-56 p-6 bg-[#0B0B0D]/60 backdrop-blur-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/20 rounded-2xl z-30"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ ...transitionConfig, delay: 1 }}
             style={{ y: y3, x: useTransform(mouseY, y => y * 0.8) }}
           >
             <div className="w-8 h-[1px] bg-[#C6A75E] mb-4" />
-            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C6A75E] mb-2">Excellence</p>
-            <p className="text-xs text-[#B8B8B8] leading-relaxed font-light">Meticulously curated experiences for the discerning host.</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C6A75E] mb-2 drop-shadow-md">Excellence</p>
+            <p className="text-xs text-white/90 leading-relaxed font-light drop-shadow-md">Meticulously curated experiences for the discerning host.</p>
           </motion.div>
         </div>
       </motion.div>
