@@ -74,20 +74,14 @@ export function FeaturedEventsCardStack() {
     offset: ["start start", "end end"],
   });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 80,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  const x = useTransform(smoothProgress, [0, 1], isMobile ? ["0%", "-75%"] : ["0%", "-65%"]);
+  const x = useTransform(scrollYProgress, [0, 1], isMobile ? ["0vw", "-400vw"] : ["0vw", "-280vw"]);
   
-  const introOpacity = useTransform(smoothProgress, [0.85, 0.95], [1, 0]);
-  const introX = useTransform(smoothProgress, [0.85, 0.95], ["0%", "-100%"]);
+  const introOpacity = useTransform(scrollYProgress, [0.85, 0.95], [1, 0]);
+  const introX = useTransform(scrollYProgress, [0.85, 0.95], ["0%", "-100%"]);
 
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-[#0B0B0D]">
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col lg:flex-row items-start lg:items-center">
+      <div className="sticky top-24 h-[calc(100vh-6rem)] overflow-hidden flex flex-col lg:flex-row items-start lg:items-center">
         
         <motion.div
           style={{ 
@@ -125,10 +119,10 @@ export function FeaturedEventsCardStack() {
             <EventSlide key={event.id} event={event} index={index} />
           ))}
 
-          <div className="w-[110vw] shrink-0 h-full flex flex-col justify-center relative bg-[#0B0B0D] border-l border-white/5 px-8 lg:px-20 overflow-hidden">
+          <div className="w-screen shrink-0 h-full flex flex-col justify-center relative bg-[#0B0B0D] border-l border-white/5 px-8 lg:px-20 overflow-hidden">
              <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-serif italic text-white whitespace-nowrap">
-                   Legacy
+                   
                 </div>
              </div>
              <motion.div

@@ -7,7 +7,7 @@ export function EventBookingCTA() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={containerRef} className="relative bg-[#0B0B0D] py-32 md:py-48 overflow-hidden">
+    <section ref={containerRef} className="relative bg-[#0B0B0D] py-20 md:py-28 overflow-hidden">
       {/* Immersive Dark Ambience Overlays */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] opacity-20"
@@ -17,12 +17,7 @@ export function EventBookingCTA() {
         />
       </div>
       
-      {/* Subtle geometric lines */}
-      <div className="absolute inset-0 pointer-events-none flex justify-center opacity-10">
-        <div className="w-px h-full bg-gradient-to-b from-transparent via-[#C6A75E] to-transparent mr-[400px]" />
-        <div className="w-px h-full bg-gradient-to-b from-transparent via-[#C6A75E] to-transparent" />
-        <div className="w-px h-full bg-gradient-to-b from-transparent via-[#C6A75E] to-transparent ml-[400px]" />
-      </div>
+
 
       <div className="relative max-w-[1440px] mx-auto px-6 md:px-20 text-center z-10 flex flex-col items-center">
         <motion.div
@@ -75,7 +70,7 @@ export function EventBookingCTA() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col items-center gap-4"
           >
-            <div className="w-12 h-px bg-[#C6A75E]/30" />
+
             <p className="text-[#B8B8B8] text-sm uppercase tracking-widest font-light">
               Securing dates for exclusively curated 2026 events
             </p>

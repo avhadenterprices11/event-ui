@@ -26,19 +26,19 @@ const SLIDES = [
     title: "Our Story",
     desc: "Founded over a decade ago, our journey began with a singular vision: to transform ordinary moments into extraordinary memories, setting new standards in luxury.",
     color: "#09090B", // Super dark onyx 
-    image: "https://images.unsplash.com/photo-1767986012154-db9a321c8832?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWRkaW5nJTIwc2V0dXAlMjBlbGVnYW50fGVufDF8fHx8MTc3MjE5MTE4NXww&ixlib=rb-4.1.0&q=80&w=1080"
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1080"
   },
   {
     title: "Our Mission",
     desc: "To deliver unparalleled event experiences that exceed expectations through meticulous planning, awe-inspiring design, and unwavering creative excellence.",
     color: "#111114", // Subtle shift to slate/black
-    image: "https://images.unsplash.com/photo-1768488292837-775c756627c5?w=1080&q=80"
+    image: "https://images.unsplash.com/photo-1525268771113-32d9e9021a97?auto=format&fit=crop&q=80&w=1080"
   },
   {
     title: "Our Vision",
     desc: "To be recognized globally as the premier luxury event management firm, authoring impossible architectural spectacles in the most remote, exclusive locations.",
     color: "#1A1A18", // Dark sepia/brown tint
-    image: "https://images.unsplash.com/photo-1766910701111-9eee02328e95?w=1080&q=80"
+    image: "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1080"
   }
 ];
 
@@ -185,8 +185,7 @@ function StoryVisionSlider() {
                    className="absolute top-1/2 left-1/2 w-[70%] lg:w-[68%] aspect-[1.4]"
                    style={{ 
                        transform: "translate(-50%, -50%)",
-                       zIndex: props.zIndex,
-                       opacity: props.opacity // Pre-fade wrapper to dodge mounting z-index popping
+                       zIndex: props.zIndex
                    }}
                  >
                    <motion.div
@@ -197,6 +196,7 @@ function StoryVisionSlider() {
                        rotate: props.rotate,
                        scale: props.scale,
                        filter: props.filter,
+                       opacity: props.opacity,
                      }}
                      transition={{
                        duration: 1.2,
@@ -387,172 +387,184 @@ function WhyTrustUs() {
       title: 'Award-Winning Excellence',
       description: 'Recognized globally for outstanding event design and execution.',
       subtitle: 'premium quality',
+      image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1080',
     },
     {
       icon: Users,
       title: 'Expert Team',
       description: 'Seasoned professionals with decades of combined experience.',
       subtitle: 'dedicated experts',
+      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1080',
     },
     {
       icon: Star,
       title: 'Premium Quality',
       description: 'Uncompromising standards in every detail, every time.',
       subtitle: 'luxury service',
+      image: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1080',
     },
   ];
 
   return (
     <>
-      <section ref={ref} className="py-[100px] bg-[#111114]">
+      <section ref={ref} className="py-[120px] bg-[#111114]">
         <style>{`
           .trust-card {
             width: 100%;
-            height: 280px;
-            background: #0B0B0D;
-            position: relative;
-            display: grid;
-            place-content: center;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.5s ease-in-out;
-          }
-          .trust-card-border {
-            position: absolute;
-            inset: 0px;
-            border: 2px solid #C6A75E;
-            opacity: 0;
-            transform: rotate(10deg);
-            transition: all 0.5s ease-in-out;
-          }
-          .trust-card-bottom-text {
-            position: absolute;
-            left: 50%;
-            bottom: 18px;
-            transform: translateX(-50%);
-            font-size: 8px;
-            text-transform: uppercase;
-            padding: 0px 5px 0px 8px;
-            color: #C6A75E;
-            background: #0B0B0D;
-            opacity: 0;
-            letter-spacing: 7px;
-            transition: all 0.5s ease-in-out;
-          }
-          .trust-card-content {
-            transition: all 0.5s ease-in-out;
-            text-align: center;
-          }
-          .trust-card-icon-wrapper {
-            height: 80px;
-            position: relative;
-            width: 80px;
-            margin: 0 auto;
-            overflow: hidden;
-            transition: all 1s ease-in-out;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #C6A75E 0%, #E5C97A 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          .trust-card-icon {
-            width: 40px;
-            height: 40px;
-            color: #0B0B0D;
-          }
-          .trust-card-trail {
-            position: absolute;
-            inset: 0;
             height: 100%;
+            min-height: 440px;
+            background: rgba(255, 255, 255, 0.02);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          }
+          
+          .trust-card-img-wrapper {
             width: 100%;
-            opacity: 0;
-            border-radius: 50%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
           }
-          .trust-card-subtitle {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            margin-top: 140px;
+          
+          .trust-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+            filter: grayscale(40%) brightness(0.8);
+          }
+          
+          .trust-card-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            position: relative;
+            z-index: 10;
+            text-align: left;
+          }
+          
+          .trust-card-icon {
+            width: 24px;
+            height: 24px;
             color: #C6A75E;
-            padding-left: 8px;
-            font-size: 12px;
-            opacity: 0;
-            transition: all 0.5s ease-in-out 0.5s;
+            margin-bottom: 24px;
+            transition: transform 0.5s ease;
           }
-          .trust-card:hover, .trust-card.active {
-            border-radius: 0;
+          
+          .trust-card-title {
+            font-size: 24px;
+            color: #F5F5F5;
+            margin-bottom: 12px;
+            font-weight: 300;
+            transition: color 0.5s ease;
+            letter-spacing: -0.02em;
+          }
+          
+          .trust-card-desc {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 300;
+            transition: color 0.5s ease;
+          }
+          
+          .trust-card-footer {
+            margin-top: auto;
+            padding-top: 24px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #C6A75E;
+            font-weight: 600;
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+          }
+          
+          /* Hover States */
+          .trust-card:hover {
+            border-color: rgba(198, 167, 94, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+          }
+          
+          .trust-card:hover .trust-card-img {
             transform: scale(1.05);
+            filter: grayscale(0%) brightness(1);
           }
-          .trust-card:hover .trust-card-icon-wrapper, .trust-card.active .trust-card-icon-wrapper {
-            animation: icon-glow 1s ease-in-out;
+          
+          .trust-card:hover .trust-card-icon {
+            transform: scale(1.1);
           }
-          .trust-card:hover .trust-card-border, .trust-card.active .trust-card-border {
-            inset: 20px;
+          
+          .trust-card:hover .trust-card-title {
+            color: #C6A75E;
+          }
+          
+          .trust-card:hover .trust-card-desc {
+            color: rgba(255, 255, 255, 0.7);
+          }
+          
+          .trust-card:hover .trust-card-footer {
             opacity: 1;
-            transform: rotate(0);
-          }
-          .trust-card:hover .trust-card-bottom-text, .trust-card.active .trust-card-bottom-text {
-            letter-spacing: 4px;
-            opacity: 1;
-            transform: translateX(-50%);
-          }
-          .trust-card:hover .trust-card-subtitle, .trust-card.active .trust-card-subtitle {
-            opacity: 1;
-            letter-spacing: 6px;
-          }
-          .trust-card:hover .trust-card-trail, .trust-card.active .trust-card-trail {
-            animation: icon-trail 1s ease-in-out;
-          }
-          @keyframes icon-glow {
-            0% { box-shadow: 0 0 0 rgba(198, 167, 94, 0); }
-            50% { box-shadow: 0 0 30px rgba(198, 167, 94, 0.8); }
-            100% { box-shadow: 0 0 0 rgba(198, 167, 94, 0); }
-          }
-          @keyframes icon-trail {
-            0% { background: radial-gradient(circle, rgba(198, 167, 94, 0) 60%, rgba(198, 167, 94, 0.8) 100%); opacity: 0; }
-            30% { background: radial-gradient(circle, rgba(198, 167, 94, 0) 40%, rgba(198, 167, 94, 0.8) 100%); opacity: 1; }
-            70% { background: radial-gradient(circle, rgba(198, 167, 94, 0) 40%, rgba(198, 167, 94, 0.8) 100%); opacity: 1; }
-            95% { background: radial-gradient(circle, rgba(198, 167, 94, 0) 60%, rgba(198, 167, 94, 0.8) 100%); opacity: 0; }
           }
         `}</style>
-        <div className="max-w-[1440px] mx-auto px-20">
-          <motion.h2
-            className="text-4xl md:text-5xl text-center mb-16 text-[#F5F5F5]"
-            style={{ fontFamily: 'var(--font-heading)' }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            Why Clients Trust Us
-          </motion.h2>
+        <div className="max-w-[1440px] mx-auto px-6 md:px-20">
+          <div className="flex flex-col items-center text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="flex items-center gap-4 mb-6"
+            >
+              <div className="w-8 h-[1px] bg-[#C6A75E]" />
+              <span className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-[0.4em]">Our Standards</span>
+              <div className="w-8 h-[1px] bg-[#C6A75E]" />
+            </motion.div>
+            <motion.h2
+              className="text-4xl md:text-6xl text-[#F5F5F5] font-light tracking-tight"
+              style={{ fontFamily: 'var(--font-heading)' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Why Clients <span className="italic font-serif text-[#C6A75E]">Trust Us</span>
+            </motion.h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="h-full"
               >
-                <div className={`trust-card ${isFooterInView ? 'active' : ''}`}>
-                  <div className="trust-card-border"></div>
+                <div className={`trust-card group`}>
+                  <div className="trust-card-img-wrapper">
+                    <img src={feature.image} alt={feature.title} className="trust-card-img" />
+                  </div>
+                  
                   <div className="trust-card-content">
-                    <div className="trust-card-icon-wrapper">
-                      <feature.icon className="trust-card-icon" />
-                      <span className="trust-card-trail"></span>
-                    </div>
+                    <feature.icon className="trust-card-icon" />
                     <h3
-                      className="text-xl md:text-2xl mt-6 mb-3 text-[#F5F5F5]"
+                      className="trust-card-title"
                       style={{ fontFamily: 'var(--font-heading)' }}
                     >
                       {feature.title}
                     </h3>
-                    <p className="text-[#C6C6C6] leading-relaxed px-8 text-sm">{feature.description}</p>
-                    <span className="trust-card-subtitle">{feature.subtitle}</span>
+                    <p className="trust-card-desc">
+                      {feature.description}
+                    </p>
+                    <div className="trust-card-footer">
+                      {feature.subtitle}
+                    </div>
                   </div>
-                  <span className="trust-card-bottom-text">trusted excellence</span>
                 </div>
               </motion.div>
             ))}

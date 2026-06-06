@@ -18,7 +18,7 @@ export function AboutHeroBanner() {
       ref={ref}
       className="relative overflow-hidden"
       style={{
-        height: '80vh',
+        height: '70vh',
       }}
     >
       {/* Full-width main background image with parallax */}
@@ -27,7 +27,7 @@ export function AboutHeroBanner() {
         style={{ y }}
       >
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1759519238029-689e99c6d19e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWRkaW5nJTIwYmFsbHJvb20lMjBjaGFuZGVsaWVyJTIwZWxlZ2FudHxlbnwxfHx8fDE3NzIyNjM4MDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=2000"
           alt="Luxury wedding ballroom"
           className="w-full h-full object-cover"
         />
@@ -48,7 +48,7 @@ export function AboutHeroBanner() {
           }}
         >
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1767824122858-a2e0494b6077?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBldmVudCUyMGRlY29yJTIwZmxvcmFsJTIwZ29sZHxlbnwxfHx8fDE3NzIyNjM4MDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=1080"
             alt="Luxury event decor"
             className="w-full h-full object-cover"
             style={{
@@ -71,7 +71,7 @@ export function AboutHeroBanner() {
           }}
         >
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1571929711205-14aae07834ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwY2VsZWJyYXRpb24lMjBiYWxscm9vbSUyMHZlbnVlfGVufDF8fHx8MTc3MjI2MzgwNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://images.unsplash.com/photo-1525268771113-32d9e9021a97?auto=format&fit=crop&q=80&w=1080"
             alt="Premium celebration venue"
             className="w-full h-full object-cover"
             style={{
@@ -173,30 +173,7 @@ export function AboutHeroBanner() {
             commitment to luxury.
           </motion.p>
 
-          {/* Decorative 3D gold element */}
-          <motion.div
-            className="mt-12 flex justify-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 rounded-full bg-gradient-to-br from-[#C6A75E] to-[#E5C97A]"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: i * 0.3,
-                }}
-              />
-            ))}
-          </motion.div>
+
         </motion.div>
       </div>
 

@@ -9,7 +9,7 @@ const services = [
     id: '01',
     title: 'Event Planning & Coordination',
     description: 'We orchestrate every precise detail of your celebration, operating as your dedicated conduit for flawless execution. From initial concepts to the final goodbye, our team manages timelines, curates vendors, and ensures your vision remains paramount and uncompromised.',
-    image: 'https://images.unsplash.com/photo-1768488292837-775c756627c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBldmVudCUyMHBsYW5uaW5nJTIwc3RyYXRlZ3klMjBlbGVnYW50fGVufDF8fHx8MTc3MjI3MDk0N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1080',
     slug: 'planning-strategy',
     points: ['Concept & Theme Ideation', 'Event Planning & Turnkey Management', 'Budget Planning & Cost Optimization', 'Event Timeline & Flow Planning', 'Guest List Planning & Segmentation', 'Wedding / Event Branding (Hashtag, Identity)']
   },
@@ -49,7 +49,7 @@ const services = [
     id: '06',
     title: 'Cinematic Media & Production',
     description: 'Cinematic storytelling and high-fidelity content capture for eternal memories. Our award-winning production teams utilize drone cinematography and editorial photography to document your celebration with unparalleled artistry.',
-    image: 'https://images.unsplash.com/photo-1755913251494-06d997235a96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwY2FtZXJhJTIwZXZlbnQlMjBmaWxtaW5nfGVufDF8fHx8MTc3MjI3ODg3NXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1080',
     slug: 'media-production',
     points: ['Photography & Cinematography', 'Pre-wedding Shoots', 'Drone Coverage', 'Live Streaming', 'Same-Day Edits / Wedding Films']
   },
@@ -89,7 +89,7 @@ const services = [
     id: '11',
     title: 'Legal & Permissions',
     description: 'Comprehensive handling of compliance, permits, and international regulations. We dissolve the bureaucratic friction of large-scale events, securing the necessary authorizations to build the impossible in exclusive locations.',
-    image: 'https://images.unsplash.com/photo-1748685145892-23961502444d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBkb2N1bWVudCUyMHByZW1pdW18ZW58MXx8fHwxNzcyMjc4ODc1fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1080',
     slug: 'legal-permissions',
     points: ['Venue Permissions', 'Sound & Music Licenses', 'Government / Local Authority Approvals']
   },

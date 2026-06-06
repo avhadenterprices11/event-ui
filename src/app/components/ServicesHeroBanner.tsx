@@ -87,7 +87,7 @@ export function ServicesHeroBanner() {
       ref={ref}
       className="relative overflow-hidden"
       style={{
-        height: '80vh',
+        height: '70vh',
       }}
     >
       {/* Carousel Container */}
@@ -262,30 +262,6 @@ export function ServicesHeroBanner() {
             </motion.p>
           </AnimatePresence>
 
-          {/* Decorative 3D gold element */}
-          <motion.div
-            className="mt-12 flex justify-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 rounded-full bg-gradient-to-br from-[#C6A75E] to-[#E5C97A]"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: i * 0.3,
-                }}
-              />
-            ))}
-          </motion.div>
         </motion.div>
       </div>
 

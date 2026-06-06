@@ -20,16 +20,7 @@ export default function NavMenu({ menuItems }: NavMenuProps) {
 
   return (
     <nav className="relative w-full">
-      {/* Mobile menu toggle button - only visible on small screens */}
-      <button 
-        onClick={toggleMenu}
-        className="lg:hidden absolute top-0 right-0 z-20 p-2"
-        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-      >
-        <div className={`w-6 h-0.5 bg-[#F5F5F5] mb-1.5 transition-transform duration-300 ${isMenuOpen ? 'transform rotate-45 translate-y-2' : ''}`}></div>
-        <div className={`w-6 h-0.5 bg-[#F5F5F5] mb-1.5 transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-        <div className={`w-6 h-0.5 bg-[#F5F5F5] transition-transform duration-300 ${isMenuOpen ? 'transform -rotate-45 -translate-y-2' : ''}`}></div>
-      </button>
+      {/* Mobile menu toggle button removed per user request */}
       
       {/* Menu container - adapts to screen size */}
       <div className={`

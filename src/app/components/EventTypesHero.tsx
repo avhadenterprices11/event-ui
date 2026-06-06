@@ -26,13 +26,13 @@ export function EventTypesHero() {
         className="absolute inset-0 w-full h-full"
       >
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1768508950918-c87e2f544573?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBldmVudCUyMHZlbnVlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NzIyNjQxNjl8MA&ixlib=rb-4.1.0&q=80&w=1920"
+          src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1920"
           alt="Premium venue background"
-          className="w-full h-full object-cover opacity-40 mix-blend-luminosity filter blur-[2px]"
+          className="w-full h-full object-cover"
         />
-        {/* Advanced Gradient Overlays for integration */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-[#0B0B0D]/80 to-[#0B0B0D]/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0B0B0D_100%)]" />
+        {/* Premium Dark Gradient Overlays for readability and consistency */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0D]/80 via-[#0B0B0D]/40 to-[#0B0B0D]/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0D]/70 via-transparent to-[#0B0B0D]/70" />
       </motion.div>
 
       {/* Hero Content */}

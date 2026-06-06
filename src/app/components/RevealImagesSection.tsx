@@ -35,7 +35,7 @@ export function RevealImagesSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={containerRef} className="relative bg-[#0B0B0D] py-32 md:py-48 min-h-[90vh] flex items-center overflow-hidden">
+    <section ref={containerRef} className="relative bg-[#0B0B0D] py-24 md:py-32 min-h-[75vh] flex items-center overflow-hidden">
       
       {/* Background Image Crossfade System */}
       <div className="absolute inset-0 z-0">

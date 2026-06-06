@@ -12,7 +12,7 @@ export function VenuesHeroBanner() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <div ref={containerRef} className="relative h-[75vh] overflow-hidden">
+    <div ref={containerRef} className="relative h-[70vh] overflow-hidden">
       {/* Background Image with Parallax */}
       <motion.div 
         style={{ y }}
