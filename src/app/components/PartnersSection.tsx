@@ -2,11 +2,77 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 
 const partners = [
-  { id: 1, name: 'Partner 1', svg: <path d="M20.504 24.71c-1.113.196-2.246.255-3.418.411l-3.574-10.469V25.57c-1.114.117-2.13.274-3.184.43V6h2.969l4.062 11.348V6h3.145z" fill="currentColor"/> },
-  { id: 2, name: 'Partner 2', svg: <path d="M54.48 5.6v16.8h-2.91V9.217h-.04L46.332 22.4h-1.94L39.075 9.217h-.039V22.4H36.36V5.6h4.19l4.812 12.445h.078L50.522 5.6zm2.406 1.283c0-.466.155-.855.504-1.166.35-.311.737-.467 1.203-.467" fill="currentColor"/> },
-  { id: 3, name: 'Partner 3', svg: <path d="M4.488.446H0v4.488h4.488zM4.375 23.828V7.666H.127v16.162z" fill="currentColor"/> },
-  { id: 4, name: 'Partner 4', svg: <path d="M61.4656 8.65929H63.9925V15.6884C63.9925 19.2563 62.0261 21.3028 58.6006 21.3028C55.2106 21.3028 53.262 19.2919 53.262 15.7863V8.66819H55.7889" fill="currentColor"/> },
-  { id: 5, name: 'Partner 5', svg: <path d="M91.0255 8.29182C91.6027 8.29182 92.0777 7.99174 92.1419 7.60405L92.7117 1.15984" fill="currentColor"/> },
+  { 
+    id: 1, 
+    name: 'Aria Venues', 
+    logo: (
+      <svg viewBox="0 0 140 40" fill="currentColor" className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 10 L10 30 L15 30 L20 20 L25 30 L30 30 Z" fill="currentColor"/>
+        <text x="40" y="26" fontFamily="inherit" fontSize="20" letterSpacing="0.1em" fontWeight="300">ARIA VENUES</text>
+      </svg>
+    )
+  },
+  { 
+    id: 2, 
+    name: 'Lumière Events', 
+    logo: (
+      <svg viewBox="0 0 180 40" fill="currentColor" className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="8" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <circle cx="20" cy="20" r="3" fill="currentColor" />
+        <text x="40" y="25" fontFamily="inherit" fontSize="16" letterSpacing="0.25em" fontWeight="300">LUMIÈRE EVENTS</text>
+      </svg>
+    )
+  },
+  { 
+    id: 3, 
+    name: 'Vogue Events', 
+    logo: (
+      <svg viewBox="0 0 170 40" fill="currentColor" className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="28" fontFamily="Georgia, serif" fontSize="24" letterSpacing="0.05em" fontWeight="400">VOGUE</text>
+        <text x="100" y="26" fontFamily="inherit" fontSize="14" letterSpacing="0.1em" fontWeight="300">EVENTS</text>
+      </svg>
+    )
+  },
+  { 
+    id: 4, 
+    name: 'Opulence', 
+    logo: (
+      <svg viewBox="0 0 160 40" fill="currentColor" className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="12" width="16" height="16" transform="rotate(45 16 20)" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <text x="40" y="25" fontFamily="inherit" fontSize="16" letterSpacing="0.3em" fontWeight="300">OPULENCE</text>
+      </svg>
+    )
+  },
+  { 
+    id: 5, 
+    name: 'The Ritz', 
+    logo: (
+      <svg viewBox="0 0 150 40" fill="currentColor" className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 10 L15 30 M15 10 L25 10 A5 5 0 0 1 25 20 L15 20 M20 20 L27 30" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <text x="40" y="25" fontFamily="Georgia, serif" fontSize="20" letterSpacing="0.15em" fontWeight="300">THE RITZ</text>
+      </svg>
+    )
+  },
+  { 
+    id: 6, 
+    name: 'Elysium Catering', 
+    logo: (
+      <svg viewBox="0 0 190 40" fill="currentColor" className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 20 Q20 5 30 20 T50 20" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <text x="60" y="25" fontFamily="inherit" fontSize="14" letterSpacing="0.2em" fontWeight="300">ELYSIUM CATERING</text>
+      </svg>
+    )
+  },
+  { 
+    id: 7, 
+    name: 'Four Seasons', 
+    logo: (
+      <svg viewBox="0 0 200 40" fill="currentColor" className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 10 L15 30 M15 10 L25 10 M15 20 L22 20" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <text x="40" y="25" fontFamily="inherit" fontSize="16" letterSpacing="0.1em" fontWeight="300">FOUR SEASONS</text>
+      </svg>
+    )
+  },
 ];
 
 export function PartnersSection() {
@@ -58,14 +124,7 @@ export function PartnersSection() {
               key={`${partner.id}-${idx}`} 
               className="group flex-shrink-0 flex items-center justify-center opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-pointer text-white hover:text-[#C6A75E]"
             >
-              <svg 
-                width="60" 
-                height="30" 
-                viewBox="0 0 100 32" 
-                className="w-auto h-8 md:h-10 transition-transform duration-500 group-hover:scale-105"
-              >
-                {partner.svg}
-              </svg>
+              {partner.logo}
             </div>
           ))}
         </motion.div>

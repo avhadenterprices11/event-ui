@@ -253,18 +253,32 @@ export function PortfolioProjects() {
           }
 
           .project-item {
-            padding: 40px 20px;
+            padding: 40px 24px;
             flex-direction: column;
             align-items: flex-start;
           }
           
           .project-index {
             margin-right: 0;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+          }
+
+          .project-info {
+            width: 100%;
+            max-width: 100%;
           }
 
           .project-title {
-            font-size: 10vw;
+            font-size: 8.5vw;
+            white-space: normal;
+            word-wrap: break-word;
+            line-height: 1.1;
+          }
+
+          .project-category {
+            font-size: 0.75rem;
+            margin-top: 8px;
           }
           
           .project-arrow {
@@ -274,18 +288,35 @@ export function PortfolioProjects() {
           .project-item:hover .project-title {
             transform: none;
           }
-           .project-item:hover .project-category {
+          .project-item:hover .project-category {
             transform: none;
+          }
+
+          .project-mobile-img-container {
+            display: block;
+            width: 100%;
+            height: 250px;
+            margin-top: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+          }
+
+          .project-mobile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
       `}</style>
 
       {/* Section Heading */}
-      <div className="max-w-7xl mx-auto px-[60px] pt-[80px] pb-[20px]">
-        <h2 className="text-6xl md:text-7xl mb-4" style={{ fontFamily: 'Playfair Display, serif', color: '#fff' }}>
+      <div className="max-w-7xl mx-auto px-6 md:px-[60px] pt-[80px] pb-[20px]">
+        <h2 className="text-4xl md:text-7xl mb-4" style={{ fontFamily: 'Playfair Display, serif', color: '#fff' }}>
           Our Services
         </h2>
-        <p className="text-lg text-white/60 max-w-2xl">
+        <p className="text-sm sm:text-base md:text-lg text-white/60 max-w-2xl">
           Discover our curated collection of luxury event experiences
         </p>
       </div>
@@ -302,9 +333,15 @@ export function PortfolioProjects() {
             onClick={() => handleProjectClick(project.slug)}
           >
             <span className="project-index">{project.index}</span>
-            <div className="project-info">
+            <div className="project-info w-full">
               <h2 className="project-title">{project.title}</h2>
               <p className="project-category">{project.category}</p>
+              
+              {/* Mobile Image */}
+              <div className="project-mobile-img-container">
+                <img src={project.image} alt={project.title} className="project-mobile-img" />
+                <div className="absolute inset-0 border border-white/10 rounded-[12px] pointer-events-none mix-blend-overlay" />
+              </div>
             </div>
             <div className="project-arrow">→</div>
           </div>

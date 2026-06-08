@@ -9,36 +9,36 @@ const slides = [
     label: 'Wedding Events',
     title: 'Timeless Celebrations',
     subtitle: 'Creating unforgettable moments with elegance, sophistication, and flawless execution.',
-    mainImage: 'https://images.unsplash.com/photo-1767986012154-db9a321c8832?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3ZWRkaW5nJTIwZGVjb3IlMjBmbG93ZXJzJTIwZWxlZ2FudHxlbnwxfHx8fDE3NzIyNjQxNjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayLeft: 'https://images.unsplash.com/photo-1767824122858-a2e0494b6077?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmbG9yYWwlMjBjZW50ZXJwaWVjZSUyMGdvbGR8ZW58MXx8fHwxNzcyMjY0MTY2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayRight: 'https://images.unsplash.com/photo-1571929711205-14aae07834ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnYWxhJTIwZXZlbnQlMjBzdGFnZSUyMHNldHVwfGVufDF8fHx8MTc3MjI2NDE2OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    mainImage: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=2000',
+    overlayLeft: 'https://images.unsplash.com/photo-1465495976222-4a7b7389ab4e?auto=format&fit=crop&q=80&w=1000',
+    overlayRight: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1000',
   },
   {
     id: 2,
     label: 'Corporate Events',
     title: 'Professional Excellence',
     subtitle: 'Elevating corporate gatherings with precision, prestige, and impeccable attention to detail.',
-    mainImage: 'https://images.unsplash.com/photo-1768508950918-c87e2f544573?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBldmVudCUyMHZlbnVlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NzIyNjQxNjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayLeft: 'https://images.unsplash.com/photo-1769018508631-fe4ebf3fba3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBldmVudCUyMGxpZ2h0aW5nJTIwY2hhbmRlbGllcnxlbnwxfHx8fDE3NzIyNjQxNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayRight: 'https://images.unsplash.com/photo-1768777270882-9f74939fee50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxldmVudCUyMHBsYW5uaW5nJTIwZWxlZ2FudCUyMHRhYmxlJTIwZGVjb3J8ZW58MXx8fHwxNzcyMjY0MTY2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    mainImage: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=2000',
+    overlayLeft: 'https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&q=80&w=1000',
+    overlayRight: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1000',
   },
   {
     id: 3,
     label: 'Destination Events',
     title: 'Extraordinary Experiences',
     subtitle: 'Curating breathtaking celebrations in the world\'s most exclusive destinations.',
-    mainImage: 'https://images.unsplash.com/photo-1766910701111-9eee02328e95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXN0aW5hdGlvbiUyMHdlZGRpbmclMjBiZWFjaCUyMHN1bnNldHxlbnwxfHx8fDE3NzIyNjU2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayLeft: 'https://images.unsplash.com/photo-1766910701111-9eee02328e95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXN0aW5hdGlvbiUyMHdlZGRpbmclMjBiZWFjaCUyMHJlc29ydHxlbnwxfHx8fDE3NzIyNjQxNjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayRight: 'https://images.unsplash.com/photo-1655114987600-74a7e03c9c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcml2YXRlJTIwbHV4dXJ5JTIwcGFydHklMjBjaGFtcGFnbmV8ZW58MXx8fHwxNzcyMjY0MTY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    mainImage: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=2000',
+    overlayLeft: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&q=80&w=1000',
+    overlayRight: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=1000',
   },
   {
     id: 4,
     label: 'Private Celebrations',
     title: 'Exclusive Gatherings',
     subtitle: 'Designing intimate, luxurious celebrations with personalized sophistication.',
-    mainImage: 'https://images.unsplash.com/photo-1766393195987-912865cbb81b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBwcml2YXRlJTIwcGFydHklMjB2ZW51ZXxlbnwxfHx8fDE3NzIyNjU2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayLeft: 'https://images.unsplash.com/photo-1762918988304-97d4a5840a4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiaXJ0aGRheSUyMGNlbGVicmF0aW9uJTIwZ29sZHxlbnwxfHx8fDE3NzIyNjQxNjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    overlayRight: 'https://images.unsplash.com/photo-1760740921490-017e5ce652e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b20lMjBldmVudCUyMGV4cGVyaWVuY2UlMjB1bmlxdWV8ZW58MXx8fHwxNzcyMjY0MTY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    mainImage: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=2000',
+    overlayLeft: 'https://images.unsplash.com/photo-1530103862676-de30951f28b2?auto=format&fit=crop&q=80&w=1000',
+    overlayRight: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=1000',
   },
 ];
 
@@ -155,9 +155,7 @@ export function ServicesHeroBanner() {
                 </motion.div>
               </div>
 
-              {/* Dark gradient overlays for readability and premium feel */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0D]/70 via-[#0B0B0D]/50 to-[#0B0B0D]/80" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0D]/60 via-transparent to-[#0B0B0D]/60" />
+              {/* Dark gradient overlays removed to show images clearly */}
             </div>
           ))}
         </div>
@@ -215,7 +213,7 @@ export function ServicesHeroBanner() {
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedIndex}
-              className="text-[#C6A75E] text-sm uppercase tracking-[0.3em] mb-6"
+              className="text-[#C6A75E] text-sm uppercase tracking-[0.3em] mb-6 drop-shadow-md"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
@@ -229,7 +227,7 @@ export function ServicesHeroBanner() {
           <AnimatePresence mode="wait">
             <motion.h1
               key={`title-${selectedIndex}`}
-              className="text-[72px] leading-[1.1] mb-8 text-[#F5F5F5]"
+              className="text-[72px] leading-[1.1] mb-8 text-[#F5F5F5] drop-shadow-lg"
               style={{ fontFamily: 'var(--font-heading)' }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -252,7 +250,7 @@ export function ServicesHeroBanner() {
           <AnimatePresence mode="wait">
             <motion.p
               key={`subtitle-${selectedIndex}`}
-              className="text-[#E0E0E0] text-xl leading-relaxed max-w-[700px] mx-auto"
+              className="text-[#E0E0E0] text-xl leading-relaxed max-w-[700px] mx-auto drop-shadow-md font-medium"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -40 }}

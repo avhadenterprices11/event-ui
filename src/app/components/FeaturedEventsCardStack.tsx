@@ -74,7 +74,7 @@ export function FeaturedEventsCardStack() {
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], isMobile ? ["0vw", "-400vw"] : ["0vw", "-280vw"]);
+  const x = useTransform(scrollYProgress, [0, 1], isMobile ? ["0vw", "-340vw"] : ["0vw", "-280vw"]);
   
   const introOpacity = useTransform(scrollYProgress, [0.85, 0.95], [1, 0]);
   const introX = useTransform(scrollYProgress, [0.85, 0.95], ["0%", "-100%"]);
@@ -113,13 +113,13 @@ export function FeaturedEventsCardStack() {
 
         <motion.div
           style={{ x }}
-          className="flex h-[75vh] lg:h-full items-center will-change-transform pl-0 lg:pl-[30vw]"
+          className="flex h-[75vh] lg:h-full items-center will-change-transform px-[5vw] lg:px-0 lg:pl-[30vw] gap-[5vw] lg:gap-0"
         >
           {featuredEvents.map((event, index) => (
             <EventSlide key={event.id} event={event} index={index} />
           ))}
 
-          <div className="w-screen shrink-0 h-full flex flex-col justify-center relative bg-[#0B0B0D] border-l border-white/5 px-8 lg:px-20 overflow-hidden">
+          <div className="w-[85vw] lg:w-screen shrink-0 h-[70vh] lg:h-full flex flex-col justify-center relative bg-[#0B0B0D] lg:border-l border-white/5 px-6 sm:px-8 lg:px-20 overflow-hidden rounded-2xl lg:rounded-none border border-white/10 lg:border-none">
              <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-serif italic text-white whitespace-nowrap">
                    
@@ -129,16 +129,16 @@ export function FeaturedEventsCardStack() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-10"
+                className="relative z-10 w-full"
              >
-                <h2 className="text-[12vw] lg:text-[10vw] leading-[0.8] font-light tracking-tighter text-white">
+                <h2 className="text-[10vw] lg:text-[10vw] leading-[0.9] font-light tracking-tighter text-white">
                    SCROLL TO <br />
                    <span className="italic font-serif text-[#C6A75E]">Redefine</span> <br />
                    EVERYTHING.
                 </h2>
-                <div className="mt-12 flex items-center gap-6">
-                   <span className="h-[1px] w-24 bg-white/20" />
-                   <span className="text-lg lg:text-2xl font-light text-[#A0A0A0] italic">Explore Service Spectrum</span>
+                <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                   <span className="h-[1px] w-12 sm:w-24 bg-white/20" />
+                   <span className="text-sm sm:text-lg lg:text-2xl font-light text-[#A0A0A0] italic">Explore Service Spectrum</span>
                 </div>
              </motion.div>
           </div>
@@ -156,7 +156,7 @@ function EventSlide({ event, index }: { event: EventItem; index: number }) {
     <div 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-screen lg:w-[55vw] shrink-0 h-full flex flex-col justify-center relative px-6 lg:px-20 border-r border-white/5 group overflow-hidden bg-[#0B0B0D]"
+      className="w-[85vw] lg:w-[55vw] shrink-0 h-[70vh] lg:h-full flex flex-col justify-center relative px-6 lg:px-20 border border-white/10 lg:border-none lg:border-r lg:border-white/5 group overflow-hidden bg-[#0B0B0D] rounded-2xl lg:rounded-none"
     >
       <div className="absolute top-4 right-4 lg:top-12 lg:right-12 pointer-events-none select-none opacity-[0.03] lg:opacity-[0.05]" aria-hidden="true">
         <span className="text-[10rem] lg:text-[25rem] font-serif italic leading-none text-white tracking-tighter">

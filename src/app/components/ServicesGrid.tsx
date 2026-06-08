@@ -33,7 +33,7 @@ const services = [
     id: '04',
     title: 'Culinary & Beverage Curation',
     description: 'Exquisite culinary journeys curated by world-renowned chefs and sommeliers. We build bespoke menus that tell a story, paired with heritage wines and signature mixology to deliver an unforgettable dining experience for your discerning guests.',
-    image: 'https://images.unsplash.com/photo-1762512140409-f81d58238692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBjYXRlcmluZyUyMGdvdXJtZXR8ZW58MXx8fHwxNzcyMjc4ODczfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=1080',
     slug: 'food-beverage',
     points: ['Catering Selection', 'Menu Curation & Planning', 'Food Experience Design (Live Counters, Themes)', 'Beverage & Bar Management']
   },

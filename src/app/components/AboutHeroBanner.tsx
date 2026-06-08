@@ -120,12 +120,12 @@ export function AboutHeroBanner() {
       {/* Main Content - Centered Overlay */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <motion.div
-          className="text-center px-20 max-w-[1200px]"
+          className="text-center px-6 md:px-20 max-w-[1200px]"
           style={{ opacity: textOpacity }}
         >
           {/* Breadcrumb */}
           <motion.div
-            className="text-sm text-[#C6C6C6] mb-8"
+            className="text-xs md:text-sm text-[#C6C6C6] mb-6 md:mb-8"
             initial={{ opacity: 0, y: -20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -135,7 +135,7 @@ export function AboutHeroBanner() {
 
           {/* Label */}
           <motion.div
-            className="text-[#C6A75E] text-sm uppercase tracking-[0.3em] mb-6"
+            className="text-[#C6A75E] text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 md:mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -145,7 +145,7 @@ export function AboutHeroBanner() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-[72px] leading-[1.1] mb-8 text-[#F5F5F5]"
+            className="text-4xl sm:text-5xl md:text-[72px] leading-[1.2] md:leading-[1.1] mb-6 md:mb-8 text-[#F5F5F5]"
             style={{ fontFamily: 'var(--font-heading)' }}
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -156,7 +156,7 @@ export function AboutHeroBanner() {
 
           {/* Gold underline - centered */}
           <motion.div
-            className="w-[100px] h-[2px] bg-[#C6A75E] mb-8 mx-auto"
+            className="w-[60px] md:w-[100px] h-[2px] bg-[#C6A75E] mb-6 md:mb-8 mx-auto"
             initial={{ opacity: 0, scaleX: 0 }}
             animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -164,7 +164,7 @@ export function AboutHeroBanner() {
 
           {/* Subtext */}
           <motion.p
-            className="text-[#E0E0E0] text-xl leading-relaxed max-w-[700px] mx-auto"
+            className="text-[#E0E0E0] text-sm md:text-xl leading-relaxed max-w-[700px] mx-auto"
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}

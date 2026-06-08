@@ -97,7 +97,7 @@ function StoryVisionSlider() {
         style={{ backgroundColor: SLIDES[current].color }}
       >
         {/* Left Side Typography Module */}
-        <div className="flex-1 w-full lg:w-[55%] flex flex-col px-8 md:px-16 lg:px-24 pt-24 pb-12 lg:py-16 relative z-10 h-full">
+        <div className="w-full h-[55%] lg:h-full lg:flex-1 lg:w-[55%] flex flex-col justify-end lg:justify-center px-6 md:px-16 lg:px-24 pt-16 md:pt-24 pb-0 lg:py-16 relative z-10">
           
           {/* Header indicator */}
           <div className="flex justify-between items-center hidden lg:flex mt-8 mb-auto">
@@ -112,13 +112,13 @@ function StoryVisionSlider() {
           </div>
 
           {/* Typography Group (Title + Description) */}
-          <div className="my-auto w-full flex flex-col justify-center">
+          <div className="mt-auto lg:my-auto w-full flex flex-col justify-end lg:justify-center pb-2 lg:pb-0">
             {/* Staggered Pop-Up Character Title Area */}
-            <div className="relative h-[180px] sm:h-[220px] lg:h-[300px] w-full flex items-end pb-4 overflow-hidden">
+            <div className="relative h-[80px] sm:h-[120px] lg:h-[300px] w-full flex items-end pb-2 lg:pb-4 overflow-hidden">
               <AnimatePresence mode="popLayout" custom={direction}>
                 <motion.div
                   key={current}
-                  className="absolute w-[120%] lg:w-[130%] text-[64px] md:text-[90px] lg:text-[min(11vw,140px)] text-[#F5F5F5] leading-[0.95] tracking-tight"
+                  className="absolute whitespace-nowrap w-[120%] lg:w-[130%] text-[13vw] sm:text-[64px] md:text-[90px] lg:text-[min(11vw,140px)] text-[#F5F5F5] leading-[0.95] tracking-tight"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   {SLIDES[current].title.split("").map((char, i) => (
@@ -148,7 +148,7 @@ function StoryVisionSlider() {
             </div>
 
             {/* Footer Subtext Area relocated beneath title */}
-            <div className="relative h-[120px] lg:h-[150px] w-full mt-4 lg:mt-6 z-20">
+            <div className="relative h-[80px] lg:h-[150px] w-full mt-2 lg:mt-6 z-20">
               <AnimatePresence mode="popLayout" custom={direction}>
                   <motion.div
                     key={current}
@@ -174,7 +174,7 @@ function StoryVisionSlider() {
         </div>
 
         {/* Right Side: Flowing Image Layout */}
-        <div className="absolute lg:static top-0 left-0 w-full lg:w-[45%] h-full flex items-center justify-center pointer-events-none z-0">
+        <div className="relative lg:static top-auto left-auto w-full h-[45%] lg:h-full lg:w-[45%] flex items-start lg:items-center justify-center pt-2 lg:pt-0 pointer-events-none z-0 overflow-hidden lg:overflow-visible">
            <div className="relative w-full h-full"> 
              {SLIDES.map((slide, i) => {
                const step = i - current;
@@ -182,9 +182,8 @@ function StoryVisionSlider() {
                return (
                  <div
                    key={i}
-                   className="absolute top-1/2 left-1/2 w-[70%] lg:w-[68%] aspect-[1.4]"
+                   className="absolute top-2 lg:top-1/2 left-1/2 w-[85%] lg:w-[68%] aspect-[1.4] -translate-x-1/2 lg:-translate-y-1/2"
                    style={{ 
-                       transform: "translate(-50%, -50%)",
                        zIndex: props.zIndex
                    }}
                  >
@@ -233,7 +232,7 @@ function Achievements() {
   ];
 
   return (
-    <section ref={ref} className="py-[100px] bg-[#0B0B0D] relative overflow-hidden">
+    <section ref={ref} className="py-16 md:py-[100px] bg-[#0B0B0D] relative overflow-hidden">
       {/* Abstract 3D shapes background */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(3)].map((_, i) => (
@@ -257,8 +256,8 @@ function Achievements() {
         ))}
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-20 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-20 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-2 md:gap-12">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -268,12 +267,12 @@ function Achievements() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <div
-                className="text-5xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-[#C6A75E] to-[#E5C97A] bg-clip-text text-transparent"
+                className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-1 md:mb-4 bg-gradient-to-r from-[#C6A75E] to-[#E5C97A] bg-clip-text text-transparent"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 {stat.number}
               </div>
-              <div className="text-[#C6C6C6] text-sm lg:text-lg tracking-wide">{stat.label}</div>
+              <div className="text-[#C6C6C6] text-xs sm:text-sm lg:text-lg tracking-wide">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -311,9 +310,9 @@ function TeamSection() {
   ];
 
   return (
-    <section ref={ref} className="py-[160px] bg-[#111114] text-white relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-8 md:px-20">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
+    <section ref={ref} className="py-24 md:py-[160px] bg-[#111114] text-white relative overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-6 md:gap-10">
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -323,7 +322,7 @@ function TeamSection() {
             <span className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-[0.4em] block">
               Our People
             </span>
-            <h2 className="text-5xl md:text-7xl font-light tracking-tighter text-[#F5F5F5]" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h2 className="text-4xl md:text-7xl font-light tracking-tighter text-[#F5F5F5]" style={{ fontFamily: 'var(--font-heading)' }}>
               Meet <br />
               <span className="italic font-serif text-[#C6A75E]">The Team.</span>
             </h2>
@@ -340,7 +339,7 @@ function TeamSection() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -349,22 +348,22 @@ function TeamSection() {
               transition={{ duration: 0.8, delay: 0.1 * index, ease: [0.16, 1, 0.3, 1] }}
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden aspect-[3/4] mb-6 bg-[#0B0B0D] rounded-sm">
+              <div className="relative overflow-hidden aspect-[3/4] mb-3 md:mb-6 bg-[#0B0B0D] rounded-sm">
                 <img 
                   src={member.img} 
                   alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 md:grayscale-[30%] group-hover:grayscale-0 opacity-100 md:opacity-80 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
-                  <span className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-widest border-b border-[#C6A75E]/40 pb-1">
-                    View Portfolio
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D]/90 via-transparent to-transparent opacity-80 md:opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-700 md:translate-y-4 md:group-hover:translate-y-0">
+                  <span className="text-[#C6A75E] text-[8px] md:text-[10px] font-bold uppercase tracking-widest border-b border-[#C6A75E]/40 pb-0.5 md:pb-1">
+                    <span className="hidden md:inline">View </span>Portfolio
                   </span>
                 </div>
               </div>
               <div className="space-y-1">
-                <h3 className="text-xl font-serif text-white tracking-tight group-hover:text-[#C6A75E] transition-colors">{member.name}</h3>
-                <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">{member.role}</p>
+                <h3 className="text-sm sm:text-base md:text-xl font-serif text-white tracking-tight group-hover:text-[#C6A75E] transition-colors">{member.name}</h3>
+                <p className="text-white/40 text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-widest">{member.role}</p>
               </div>
             </motion.div>
           ))}
@@ -407,7 +406,7 @@ function WhyTrustUs() {
 
   return (
     <>
-      <section ref={ref} className="py-[120px] bg-[#111114]">
+      <section ref={ref} className="py-24 md:py-[120px] bg-[#111114]">
         <style>{`
           .trust-card {
             width: 100%;
@@ -536,7 +535,7 @@ function WhyTrustUs() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -582,12 +581,12 @@ function CTASection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-[120px] bg-[#0B0B0D] relative overflow-hidden">
+    <section ref={ref} className="py-24 md:py-[120px] bg-[#0B0B0D] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-[#C6A75E]/20 via-transparent to-transparent blur-3xl" />
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-20 text-center relative z-10">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-20 text-center relative z-10">
         <motion.h2
           className="text-4xl md:text-6xl mb-6 text-[#F5F5F5] tracking-tight"
           style={{ fontFamily: 'var(--font-heading)' }}
