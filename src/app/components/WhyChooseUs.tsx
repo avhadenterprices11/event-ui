@@ -83,7 +83,7 @@ export function WhyChooseUs() {
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10 text-white">
         {/* Section Header */}
-        <div className="mb-20 lg:mb-32">
+        <div className="mb-16 lg:mb-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ export function WhyChooseUs() {
               <div className="w-8 h-[1px] bg-[#C6A75E]" />
               <span className="text-[#C6A75E] text-[10px] md:text-xs font-bold uppercase tracking-[0.4em]">Distinctive Edge</span>
             </div>
-            <h2 className="text-[48px] md:text-[80px] lg:text-[100px] text-[#F5F5F5] font-light leading-[1] tracking-tighter" 
+            <h2 className="text-5xl md:text-[80px] lg:text-[100px] text-[#F5F5F5] font-light leading-[1.1] lg:leading-[1] tracking-tighter" 
                 style={{ fontFamily: 'var(--font-heading)' }}>
               WHY <span className="italic font-serif text-[#C6A75E]">Choose</span> US.
             </h2>
@@ -104,7 +104,7 @@ export function WhyChooseUs() {
         <div ref={containerRef} className="relative w-full" onMouseMove={handleMouseMove}>
           {/* Oversized background index */}
           <motion.div
-            className="absolute -left-12 top-10 text-[20rem] md:text-[28rem] font-bold text-[#C6A75E]/[0.03] select-none pointer-events-none leading-none tracking-tighter z-0"
+            className="absolute -left-4 lg:-left-12 -top-10 lg:top-10 text-[15rem] md:text-[28rem] font-bold text-[#C6A75E]/[0.03] select-none pointer-events-none leading-none tracking-tighter z-0"
             style={{ x: numberX, y: numberY, fontFamily: 'var(--font-heading)' }}
           >
             <AnimatePresence mode="wait">
@@ -121,11 +121,11 @@ export function WhyChooseUs() {
             </AnimatePresence>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Content Pillar */}
-            <div className="relative z-10 flex flex-col gap-12">
+            <div className="relative z-10 flex flex-col gap-10 lg:gap-12">
                {/* Progress & Category */}
-               <div className="flex items-center gap-8">
+               <div className="flex items-center gap-6 lg:gap-8">
                   <div className="flex-1 h-px bg-white/10 relative overflow-hidden">
                      <motion.div 
                         className="absolute left-0 top-0 h-full bg-[#C6A75E]"
@@ -139,7 +139,7 @@ export function WhyChooseUs() {
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -10 }}
-                      className="text-[#C6A75E] text-[10px] uppercase font-bold tracking-[0.4em]"
+                      className="text-[#C6A75E] text-[10px] uppercase font-bold tracking-[0.4em] text-right"
                     >
                       {current.category}
                     </motion.span>
@@ -147,7 +147,7 @@ export function WhyChooseUs() {
                </div>
 
                {/* Title & Description */}
-               <div className="space-y-8 min-h-[300px]">
+               <div className="space-y-6 lg:space-y-8 min-h-[480px] lg:min-h-[300px]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeIndex}
@@ -155,12 +155,24 @@ export function WhyChooseUs() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.6 }}
-                      className="space-y-8"
+                      className="space-y-6 lg:space-y-8"
                     >
-                      <h3 className="text-5xl md:text-7xl font-light text-white leading-[0.95] tracking-tighter" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <h3 className="text-[10vw] sm:text-5xl lg:text-7xl font-light text-white leading-[1.1] lg:leading-[0.95] tracking-tighter" style={{ fontFamily: 'var(--font-heading)' }}>
                         {current.title}
                       </h3>
-                      <p className="text-gray-400 text-lg md:text-2xl font-light leading-relaxed max-w-xl italic opacity-80">
+                      
+                      {/* Mobile Image (Visible only on small screens inside the text block) */}
+                      <div className="block lg:hidden w-full h-[250px] sm:h-[350px] rounded-[16px] overflow-hidden relative shadow-2xl border border-white/10">
+                        <ImageWithFallback 
+                          src={current.image} 
+                          alt={current.title} 
+                          className="w-full h-full object-cover" 
+                        />
+                        <div className="absolute inset-0 border border-white/10 rounded-[16px] pointer-events-none mix-blend-overlay" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D]/60 via-transparent to-transparent pointer-events-none" />
+                      </div>
+
+                      <p className="text-gray-400 text-base sm:text-lg lg:text-2xl font-light leading-relaxed max-w-xl italic opacity-80">
                          "{current.description}"
                       </p>
                     </motion.div>
@@ -168,9 +180,11 @@ export function WhyChooseUs() {
                </div>
 
                {/* Controls */}
-               <div className="flex items-center gap-6">
-                  <NavButton onClick={goPrev} direction="prev" />
-                  <NavButton onClick={goNext} direction="next" />
+               <div className="flex items-center gap-6 lg:gap-8">
+                  <div className="flex gap-4">
+                     <NavButton onClick={goPrev} direction="prev" />
+                     <NavButton onClick={goNext} direction="next" />
+                  </div>
                   <div className="flex gap-2">
                      {reasons.map((_, i) => (
                        <div 
@@ -182,21 +196,21 @@ export function WhyChooseUs() {
                </div>
             </div>
 
-            {/* Right: Interactive Image Stack */}
-            <div className="relative h-[600px] flex items-center justify-center">
-               <div className="relative w-full h-full flex flex-col justify-between">
+            {/* Right: Interactive Image Stack (Desktop Only) */}
+            <div className="hidden lg:flex relative h-[600px] items-center justify-center">
+               <div className="relative w-full h-full flex flex-col justify-between gap-3 lg:gap-0">
                   {reasons.map((reason, i) => (
                     <motion.div
                       key={i}
                       animate={{
-                        scale: i === activeIndex ? 1.05 : 0.9,
-                        opacity: i === activeIndex ? 1 : 0.3,
-                        x: i === activeIndex ? 0 : 40,
+                        scale: i === activeIndex ? 1.02 : 0.95,
+                        opacity: i === activeIndex ? 1 : 0.4,
+                        x: i === activeIndex ? 0 : 20,
                         filter: i === activeIndex ? "grayscale(0)" : "grayscale(1)",
                         zIndex: i === activeIndex ? 10 : 0
                       }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      className="relative h-[22%] w-full rounded-2xl overflow-hidden border border-white/10 cursor-pointer"
+                      className="relative h-[22%] w-full rounded-[16px] lg:rounded-2xl overflow-hidden border border-white/10 cursor-pointer shadow-lg"
                       onClick={() => setActiveIndex(i)}
                     >
                        <ImageWithFallback 
@@ -221,8 +235,8 @@ export function WhyChooseUs() {
             </div>
           </div>
 
-          <div className="mt-40 pt-12 border-t border-white/5 opacity-40">
-             <div className="flex flex-wrap gap-x-20 gap-y-8 uppercase text-[10px] font-bold tracking-[0.5em] text-white">
+          <div className="mt-20 lg:mt-40 pt-10 lg:pt-12 border-t border-white/5 opacity-40">
+             <div className="flex flex-wrap gap-x-8 lg:gap-x-20 gap-y-6 uppercase text-[9px] lg:text-[10px] font-bold tracking-[0.4em] lg:tracking-[0.5em] text-white">
                 {reasons.map(r => (
                   <span key={r.title} className={r === current ? "text-[#C6A75E]" : ""}>
                     {r.category}

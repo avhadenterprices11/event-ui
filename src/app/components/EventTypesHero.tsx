@@ -26,13 +26,11 @@ export function EventTypesHero() {
         className="absolute inset-0 w-full h-full"
       >
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1768508950918-c87e2f544573?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBldmVudCUyMHZlbnVlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NzIyNjQxNjl8MA&ixlib=rb-4.1.0&q=80&w=1920"
+          src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1920"
           alt="Premium venue background"
-          className="w-full h-full object-cover opacity-40 mix-blend-luminosity filter blur-[2px]"
+          className="w-full h-full object-cover"
         />
-        {/* Advanced Gradient Overlays for integration */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-[#0B0B0D]/80 to-[#0B0B0D]/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0B0B0D_100%)]" />
+        {/* Premium Dark Gradient Overlays removed to show images clearly */}
       </motion.div>
 
       {/* Hero Content */}
@@ -47,7 +45,7 @@ export function EventTypesHero() {
           className="flex items-center gap-4 mb-8"
         >
           <div className="w-8 h-[1px] bg-[#C6A75E]" />
-          <span className="text-[#C6A75E] text-xs md:text-sm tracking-[0.3em] uppercase font-semibold">
+          <span className="text-[#C6A75E] text-xs md:text-sm tracking-[0.3em] uppercase font-semibold drop-shadow-md">
             Our Typologies
           </span>
           <div className="w-8 h-[1px] bg-[#C6A75E]" />
@@ -59,7 +57,7 @@ export function EventTypesHero() {
               initial={{ y: '110%' }}
               animate={{ y: 0 }}
               transition={{ ...transitionConfig, delay: 0.2 }}
-              className="text-[64px] md:text-[96px] lg:text-[120px] leading-[0.95] text-[#F5F5F5] font-light tracking-tight"
+              className="text-[64px] md:text-[96px] lg:text-[120px] leading-[0.95] text-[#F5F5F5] font-light tracking-tight drop-shadow-lg"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               Signature
@@ -70,7 +68,7 @@ export function EventTypesHero() {
               initial={{ y: '110%' }}
               animate={{ y: 0 }}
               transition={{ ...transitionConfig, delay: 0.3 }}
-              className="text-[64px] md:text-[96px] lg:text-[120px] leading-[0.95] text-[#C6A75E] italic tracking-tight pr-4"
+              className="text-[64px] md:text-[96px] lg:text-[120px] leading-[0.95] text-[#C6A75E] italic tracking-tight pr-4 drop-shadow-lg"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               Celebrations.
@@ -82,7 +80,7 @@ export function EventTypesHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...transitionConfig, delay: 0.5 }}
-          className="text-[#B8B8B8] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light"
+          className="text-[#B8B8B8] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-md"
         >
           From intimate gatherings to grand luxury affairs, we design unforgettable experiences tailored precisely to your vision.
         </motion.p>

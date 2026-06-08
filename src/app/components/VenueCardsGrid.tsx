@@ -1,8 +1,9 @@
 import { motion, useInView } from 'motion/react';
 import { MapPin, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { VenueFilters } from './VenueFilterBar';
 
 const venues = [
   {
@@ -10,6 +11,9 @@ const venues = [
     name: 'Palm Springs',
     location: 'Palm Springs, CA',
     capacity: '300 guests',
+    capacityNum: 300,
+    category: 'hills',
+    type: 'outdoor',
     image: '/src/assets/venues/palm-springs.png',
   },
   {
@@ -17,34 +21,49 @@ const venues = [
     name: 'The Haven by Sula',
     location: 'Sula Vineyards, Nashik',
     capacity: '250 guests',
-    image: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB2aW5leWFyZCUyMGV2ZW50fGVufDF8fHx8MTc3MjQ1NjAwNXww&ixlib=rb-4.1.0&q=80&w=1080',
+    capacityNum: 250,
+    category: 'historic',
+    type: 'indoor',
+    image: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&q=80&w=1080',
   },
   {
     id: 3,
     name: 'The Source by Sula',
     location: 'Sula Vineyards, Nashik',
     capacity: '200 guests',
-    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3aW5lcnklMjBkZWNvciUyMGV2ZW50fGVufDF8fHx8MTc3MjQ1NjAwNXww&ixlib=rb-4.1.0&q=80&w=1080',
+    capacityNum: 200,
+    category: 'historic',
+    type: 'outdoor',
+    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=1080',
   },
   {
     id: 4,
     name: 'Radisson Resort',
     location: 'Lonavala',
     capacity: '600 guests',
-    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZXNvcnQlMjBiYWxscm9vbXxlbnwxfHx8fDE3NzI0NTYwMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    capacityNum: 600,
+    category: 'hills',
+    type: 'indoor',
+    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1080',
   },
   {
     id: 5,
     name: 'Radisson Blu',
     location: 'Cavelossim, Goa',
     capacity: '750 guests',
-    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMHBvb2wlMjBzaWRlfGVufDF8fHx8MTc3MjQ1NjAwNnww&ixlib=rb-4.1.0&q=80&w=1080',
+    capacityNum: 750,
+    category: 'waterfront',
+    type: 'outdoor',
+    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=1080',
   },
   {
     id: 6,
     name: 'Treat Hotel',
     location: 'Silvassa',
     capacity: '400 guests',
+    capacityNum: 400,
+    category: 'downtown',
+    type: 'indoor',
     image: '/src/assets/venues/treat-hotel.png',
   },
   {
@@ -52,6 +71,9 @@ const venues = [
     name: 'Radisson Karjat',
     location: 'Karjat',
     capacity: '500 guests',
+    capacityNum: 500,
+    category: 'hills',
+    type: 'indoor',
     image: '/src/assets/venues/radisson-karjat.png',
   },
   {
@@ -59,16 +81,51 @@ const venues = [
     name: 'Hotel W (Goa)',
     location: 'Vagator, Goa',
     capacity: '450 guests',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGV2ZW50JTIwdGVycmFjZXxlbnwxfHx8fDE3NzI0NTYwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    capacityNum: 450,
+    category: 'waterfront',
+    type: 'outdoor',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1080',
   },
 ];
 
-export function VenueCardsGrid() {
+interface VenueCardsGridProps {
+  filters?: VenueFilters;
+}
+
+export function VenueCardsGrid({ filters }: VenueCardsGridProps) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
+  // Apply filters
+  const filteredVenues = useMemo(() => {
+    if (!filters) return venues;
+    
+    return venues.filter((venue) => {
+      // Filter by location category
+      if (filters.location && venue.category !== filters.location) {
+        return false;
+      }
+      
+      // Filter by capacity (approximated based on the filter options)
+      if (filters.capacity) {
+        const targetCapacity = parseInt(filters.capacity, 10);
+        if (targetCapacity === 50 && venue.capacityNum > 50) return false;
+        if (targetCapacity === 100 && (venue.capacityNum <= 50 || venue.capacityNum > 100)) return false;
+        if (targetCapacity === 200 && (venue.capacityNum <= 100 || venue.capacityNum > 200)) return false;
+        if (targetCapacity === 500 && (venue.capacityNum <= 200 || venue.capacityNum > 500)) return false;
+      }
+      
+      // Filter by environment (indoor/outdoor)
+      if (filters.venueType !== 'all' && venue.type !== filters.venueType) {
+        return false;
+      }
+      
+      return true;
+    });
+  }, [filters]);
+
   return (
-    <section ref={containerRef} className="py-24 md:py-40 bg-[#0B0B0D]">
+    <section id="venue-cards-grid" ref={containerRef} className="py-24 md:py-40 bg-[#0B0B0D]">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 border-t border-white/5 pt-20">
         
         <div className="flex justify-between items-end mb-16">
@@ -81,13 +138,20 @@ export function VenueCardsGrid() {
             </h2>
           </div>
           <span className="hidden md:block text-[#B8B8B8] font-light text-sm tracking-widest uppercase pb-2">
-             {venues.length} Locations
+             {filteredVenues.length} Locations
           </span>
         </div>
 
+        {/* Empty State */}
+        {filteredVenues.length === 0 && (
+          <div className="py-32 text-center text-[#B8B8B8] font-light">
+            No venues match your exact criteria. Please try adjusting your filters.
+          </div>
+        )}
+
         {/* 2-Column Staggered Editorial Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-24">
-          {venues.map((venue, index) => {
+          {filteredVenues.map((venue, index) => {
             const isStaggered = index % 2 !== 0;
 
             return (

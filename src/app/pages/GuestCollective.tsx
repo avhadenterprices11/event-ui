@@ -21,7 +21,7 @@ export default function GuestCollective() {
             <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-blue-500/5 blur-[200px] rounded-full" />
         </div>
 
-        <div className="max-w-[2000px] mx-auto pt-40 px-6 md:px-12 lg:px-24 relative z-10">
+        <div className="max-w-[1440px] mx-auto pt-40 px-6 md:px-12 lg:px-24 relative z-10">
             
             {/* Editorial Header */}
             <header className="mb-24 flex flex-col xl:flex-row xl:items-end justify-between gap-16 border-b border-white/5 pb-16">
@@ -58,61 +58,37 @@ export default function GuestCollective() {
                 </motion.div>
             </header>
 
-            {/* Telemetry HUD */}
-            <div className="flex flex-col xl:flex-row gap-8 mb-24">
-                {/* Aggregate Hero Card */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="xl:w-2/5 bg-[#0A0A0C] border border-white/5 rounded-[3rem] p-12 relative overflow-hidden group"
-                >
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-[#C6A75E]/10 blur-[80px] rounded-full group-hover:scale-150 transition-transform duration-1000 pointer-events-none" />
-                    <div className="relative z-10 h-full flex flex-col justify-between space-y-12">
-                        <div className="flex items-center justify-between text-white/30">
-                            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-[#050505]">
-                                <Users size={18} className="text-[#C6A75E]" />
+            {/* Telemetry HUD (Bento Grid) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+                {[
+                  { label: 'Aggregate Presence', count: '142', icon: <Users size={16} className="text-[#C6A75E]" />, glow: 'bg-[#C6A75E]/10', ring: 'border-[#C6A75E]/20', valueLabel: 'Nodes Active' },
+                  { label: 'Confirmed', count: '124', icon: <CheckCircle2 size={16} className="text-emerald-400" />, glow: 'bg-emerald-400/10', ring: 'border-emerald-400/20', valueLabel: 'Identities' },
+                  { label: 'Awaiting Auth', count: '12', icon: <Clock size={16} className="text-amber-500" />, glow: 'bg-amber-500/10', ring: 'border-amber-500/20', valueLabel: 'Identities' },
+                  { label: 'Declined', count: '6', icon: <ClipboardList size={16} className="text-white/20" />, glow: 'bg-white/10', ring: 'border-white/10', valueLabel: 'Identities' }
+                ].map((stat, i) => (
+                    <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 + (i * 0.1) }}
+                        className="bg-[#0B0B0D] border border-white/10 rounded-3xl p-8 relative overflow-hidden group flex flex-col justify-between min-h-[180px] shadow-2xl hover:border-white/20 transition-all duration-500"
+                    >
+                        <div className={`absolute bottom-0 right-0 w-32 h-32 ${stat.glow} blur-[40px] rounded-full group-hover:scale-150 transition-transform duration-1000 pointer-events-none`} />
+                        <div className="relative z-10 flex items-center justify-between text-white/30">
+                            <div className={`w-10 h-10 rounded-full border ${stat.ring} flex items-center justify-center bg-[#050505] shadow-lg`}>
+                                {stat.icon}
                             </div>
-                            <ArrowUpRight size={18} className="text-white/20 group-hover:text-white/50 transition-colors" />
+                            <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
-                        <div>
-                            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#C6A75E] mb-4">Aggregate Presence</p>
-                            <div className="flex items-baseline gap-6">
-                                <h3 className="text-7xl lg:text-[7rem] font-serif text-white tracking-tighter leading-none">142</h3>
-                                <span className="text-white/30 text-[10px] font-bold uppercase tracking-[0.3em]">Nodes Active</span>
+                        <div className="relative z-10 space-y-4 pt-8">
+                            <div className="flex items-baseline gap-4">
+                                <h4 className="text-5xl lg:text-6xl font-serif text-white tracking-tight leading-none">{stat.count}</h4>
+                                <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-white/30">{stat.valueLabel}</span>
                             </div>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/50 group-hover:text-white transition-colors">{stat.label}</p>
                         </div>
-                    </div>
-                </motion.div>
-                
-                {/* Micro Stats */}
-                <div className="xl:w-3/5 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {[
-                      { label: 'Confirmed', count: '124', icon: <CheckCircle2 size={16} className="text-emerald-400" />, glow: 'bg-emerald-400/5', ring: 'border-emerald-400/20' },
-                      { label: 'Awaiting Auth', count: '12', icon: <Clock size={16} className="text-[#C6A75E]" />, glow: 'bg-[#C6A75E]/5', ring: 'border-[#C6A75E]/20' },
-                      { label: 'Declined', count: '6', icon: <ClipboardList size={16} className="text-white/20" />, glow: 'bg-white/5', ring: 'border-white/10' }
-                    ].map((stat, i) => (
-                        <motion.div 
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 + (i * 0.1) }}
-                            className="bg-[#0A0A0C] border border-white/5 rounded-[3rem] p-10 relative overflow-hidden group flex flex-col justify-between min-h-[250px]"
-                        >
-                            <div className={`absolute bottom-0 left-0 w-40 h-40 ${stat.glow} blur-[50px] rounded-full group-hover:scale-150 transition-transform duration-1000 pointer-events-none`} />
-                            <div className="relative z-10 flex items-center justify-between text-white/30">
-                                <div className={`w-10 h-10 rounded-full border ${stat.ring} flex items-center justify-center bg-[#050505]`}>
-                                    {stat.icon}
-                                </div>
-                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                            <div className="relative z-10 space-y-4">
-                                <h4 className="text-5xl lg:text-6xl font-serif text-white tracking-tight">{stat.count}</h4>
-                                <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/40">{stat.label}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                    </motion.div>
+                ))}
             </div>
 
             {/* Master Ledger (Table) */}

@@ -41,7 +41,7 @@ export function HeroSection() {
   return (
     <section 
       ref={containerRef} 
-      className="relative h-screen bg-[#0B0B0D] overflow-hidden flex items-center justify-center selection:bg-[#C6A75E]/30"
+      className="relative pt-40 pb-24 lg:py-0 lg:h-screen bg-[#0B0B0D] overflow-hidden flex items-center justify-center selection:bg-[#C6A75E]/30"
     >
       {/* Abstract Animated Glows (Dark Mode) */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
@@ -59,7 +59,7 @@ export function HeroSection() {
 
       <motion.div 
         style={{ opacity, scale }}
-        className="max-w-[1728px] w-full mx-auto px-6 md:px-12 lg:px-20 xl:px-32 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full pt-20 lg:pt-0"
+        className="max-w-[1728px] w-full mx-auto px-6 md:px-12 lg:px-20 xl:px-32 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center h-auto lg:h-full"
       >
         {/* Left Side: Typography */}
         <div className="lg:col-span-7 xl:col-span-6 z-20 flex flex-col justify-center">
@@ -77,24 +77,24 @@ export function HeroSection() {
           </motion.div>
 
           {/* Headline */}
-          <div className="relative mb-10">
+          <div className="relative mb-8 sm:mb-10">
             <div className="overflow-hidden py-10 px-10 -my-10 -mx-10">
               <motion.h1
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ ...transitionConfig, delay: 0.2 }}
-                className="text-[64px] md:text-[90px] lg:text-[110px] xl:text-[130px] leading-[1.2] text-[#F5F5F5] font-light tracking-tight"
+                className="text-[40px] sm:text-[64px] md:text-[90px] lg:text-[110px] xl:text-[130px] leading-[1.2] text-[#F5F5F5] font-light tracking-tight"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 Curating
               </motion.h1>
             </div>
-            <div className="overflow-hidden py-10 px-10 -my-10 -mx-10 -mt-6 lg:-mt-10">
+            <div className="overflow-hidden py-10 px-10 -my-10 -mx-10 -mt-2 sm:-mt-6 lg:-mt-10">
               <motion.h1
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ ...transitionConfig, delay: 0.3 }}
-                className="text-[64px] md:text-[90px] lg:text-[110px] xl:text-[130px] leading-[1.2] text-[#C6A75E] italic tracking-tight flex items-center gap-6"
+                className="text-[40px] sm:text-[64px] md:text-[90px] lg:text-[110px] xl:text-[130px] leading-[1.2] text-[#C6A75E] italic tracking-tight flex items-center gap-4 sm:gap-6"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 <span>Masterpieces</span>
@@ -112,7 +112,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...transitionConfig, delay: 0.5 }}
-            className="text-[#A0A0A0] max-w-[500px] text-lg lg:text-xl leading-relaxed mb-14 font-light italic"
+            className="text-[#A0A0A0] max-w-[500px] text-base sm:text-lg lg:text-xl leading-relaxed mb-10 sm:mb-14 font-light italic"
           >
             Luxury events crafted with unparalleled attention to detail, orchestrating the extraordinary so you can celebrate without limits.
           </motion.p>
@@ -122,7 +122,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...transitionConfig, delay: 0.6 }}
-            className="flex flex-col sm:row gap-8 items-start sm:items-center"
+            className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start sm:items-center"
           >
             <Link
               to="/quote"
@@ -155,11 +155,11 @@ export function HeroSection() {
         </div>
 
         {/* Right Side: Editorial Image Collage */}
-        <div className="hidden lg:flex lg:col-span-5 xl:col-span-6 relative h-[700px] xl:h-[800px] items-center justify-center pointer-events-none">
+        <div className="flex lg:col-span-5 xl:col-span-6 relative h-[450px] sm:h-[600px] lg:h-[700px] xl:h-[800px] items-center justify-center pointer-events-none w-full">
           
           {/* Main Portrait Image */}
           <motion.div
-            className="relative w-[380px] xl:w-[460px] aspect-[4/5] overflow-hidden rounded-[4px] shadow-[0_40px_100px_rgba(0,0,0,0.6)] z-10"
+            className="relative w-[260px] sm:w-[380px] xl:w-[460px] aspect-[4/5] overflow-hidden rounded-[4px] shadow-[0_40px_100px_rgba(0,0,0,0.6)] z-10"
             initial={{ clipPath: 'inset(100% 0 0 0)' }}
             animate={{ clipPath: 'inset(0% 0 0 0)' }}
             transition={{ ...transitionConfig, delay: 0.4 }}
@@ -182,7 +182,7 @@ export function HeroSection() {
 
           {/* Secondary Landscape Image */}
           <motion.div
-            className="absolute -left-16 xl:-left-24 bottom-16 xl:bottom-24 w-[280px] xl:w-[360px] aspect-[4/3] overflow-hidden rounded-[2px] shadow-[0_30px_80px_rgba(0,0,0,0.5)] z-20"
+            className="absolute -left-4 sm:-left-16 xl:-left-24 bottom-4 sm:bottom-16 xl:bottom-24 w-[180px] sm:w-[280px] xl:w-[360px] aspect-[4/3] overflow-hidden rounded-[2px] shadow-[0_30px_80px_rgba(0,0,0,0.5)] z-20"
             initial={{ clipPath: 'inset(0 100% 0 0)' }}
             animate={{ clipPath: 'inset(0 0% 0 0)' }}
             transition={{ ...transitionConfig, delay: 0.6 }}
@@ -201,15 +201,15 @@ export function HeroSection() {
 
           {/* Glass Detail Point */}
           <motion.div
-            className="absolute top-20 right-0 xl:right-[-20px] w-48 xl:w-56 p-6 bg-[#0B0B0D]/60 backdrop-blur-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/20 rounded-2xl z-30"
+            className="absolute top-10 sm:top-20 right-0 xl:right-[-20px] w-36 sm:w-48 xl:w-56 p-4 sm:p-6 bg-[#0B0B0D]/60 backdrop-blur-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/20 rounded-2xl z-30"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ ...transitionConfig, delay: 1 }}
             style={{ y: y3, x: useTransform(mouseY, y => y * 0.8) }}
           >
-            <div className="w-8 h-[1px] bg-[#C6A75E] mb-4" />
-            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C6A75E] mb-2 drop-shadow-md">Excellence</p>
-            <p className="text-xs text-white/90 leading-relaxed font-light drop-shadow-md">Meticulously curated experiences for the discerning host.</p>
+            <div className="w-6 sm:w-8 h-[1px] bg-[#C6A75E] mb-3 sm:mb-4" />
+            <p className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] font-bold text-[#C6A75E] mb-2 drop-shadow-md">Excellence</p>
+            <p className="text-[10px] sm:text-xs text-white/90 leading-relaxed font-light drop-shadow-md">Meticulously curated experiences for the discerning host.</p>
           </motion.div>
         </div>
       </motion.div>

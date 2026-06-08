@@ -54,7 +54,7 @@ export function FeatureStepsSection() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C6A75E]/5 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-[-200px] w-[600px] h-[600px] bg-[#E5C97A]/5 blur-[200px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1440px] px-6 md:px-16 lg:px-24 xl:px-32 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative z-10">
+      <div className="max-w-[1440px] px-6 md:px-16 lg:px-24 xl:px-32 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 relative z-10">
         
         {/* Left Side: Interactive Accordion */}
         <div className="lg:col-span-5 flex flex-col justify-center">
@@ -62,13 +62,13 @@ export function FeatureStepsSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-16"
+            className="mb-12 lg:mb-16"
           >
-            <span className="text-[#C6A75E] uppercase tracking-[0.3em] text-xs font-semibold block mb-4">
+            <span className="text-[#C6A75E] uppercase tracking-[0.3em] text-[10px] md:text-xs font-semibold block mb-4">
               Our Expertise
             </span>
             <h2 
-              className="text-5xl md:text-6xl text-[#F5F5F5] font-light tracking-tight" 
+              className="text-4xl md:text-5xl lg:text-6xl text-[#F5F5F5] font-light tracking-tight" 
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               Event Portfolios
@@ -82,7 +82,8 @@ export function FeatureStepsSection() {
                 <div 
                   key={index}
                   onMouseEnter={() => setCurrentFeature(index)}
-                  className="group relative flex items-start gap-6 md:gap-8 border-t border-white/5 py-8 cursor-pointer transition-colors duration-500"
+                  onClick={() => setCurrentFeature(index)}
+                  className="group relative flex items-start gap-4 sm:gap-6 md:gap-8 border-t border-white/5 py-6 sm:py-8 cursor-pointer transition-colors duration-500"
                 >
                   {/* Animated top line on hover/active */}
                   <div 
@@ -95,7 +96,7 @@ export function FeatureStepsSection() {
                   
                   {/* Step Number */}
                   <div 
-                    className="text-lg md:text-xl font-mono mt-2 transition-colors duration-500" 
+                    className="text-base sm:text-lg md:text-xl font-mono mt-1 sm:mt-2 transition-colors duration-500" 
                     style={{ color: isActive ? '#C6A75E' : 'rgba(255,255,255,0.2)' }}
                   >
                     {feature.step}
@@ -104,7 +105,7 @@ export function FeatureStepsSection() {
                   {/* Text Content */}
                   <div className="flex-1">
                     <h3 
-                      className={`text-3xl md:text-5xl transition-all duration-500 tracking-tight leading-none ${
+                      className={`text-2xl sm:text-3xl md:text-5xl transition-all duration-500 tracking-tight leading-none ${
                         isActive ? 'text-[#F5F5F5] font-light italic' : 'text-white/20 font-light'
                       }`} 
                       style={{ fontFamily: 'var(--font-heading)' }}
@@ -118,18 +119,29 @@ export function FeatureStepsSection() {
                       animate={{ 
                         height: isActive ? 'auto' : 0, 
                         opacity: isActive ? 1 : 0,
-                        marginTop: isActive ? 24 : 0
+                        marginTop: isActive ? 20 : 0
                       }}
                       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="text-[#B8B8B8] text-base leading-relaxed mb-8 max-w-[400px]">
+                      <p className="text-[#B8B8B8] text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-[400px]">
                         {feature.content}
                       </p>
                       
+                      {/* Mobile Image (Visible only on small screens inside the accordion) */}
+                      <div className="block lg:hidden w-full h-[250px] sm:h-[350px] rounded-[16px] overflow-hidden relative mb-6 sm:mb-8 shadow-2xl">
+                        <ImageWithFallback 
+                          src={feature.image} 
+                          alt={feature.title}
+                          className="w-full h-full object-cover" 
+                        />
+                        <div className="absolute inset-0 border border-white/10 rounded-[16px] pointer-events-none mix-blend-overlay" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D]/60 via-transparent to-transparent pointer-events-none" />
+                      </div>
+
                       <Link 
                         to={`/events/${feature.slug}`}
-                        className="inline-flex items-center gap-3 text-[#C6A75E] text-xs font-bold uppercase tracking-widest hover:text-[#E5C97A] transition-colors"
+                        className="inline-flex items-center gap-3 text-[#C6A75E] text-[10px] sm:text-xs font-bold uppercase tracking-widest hover:text-[#E5C97A] transition-colors"
                       >
                         Explore Experience
                         <ArrowRight className="w-4 h-4" />
@@ -144,8 +156,8 @@ export function FeatureStepsSection() {
           </div>
         </div>
 
-        {/* Right Side: Elegant Masking Image Stack */}
-        <div className="hidden lg:block lg:col-span-7 h-[700px] xl:h-[800px] relative">
+        {/* Right Side: Elegant Masking Image Stack (Desktop Only) */}
+        <div className="hidden lg:block lg:col-span-7 h-[700px] xl:h-[800px] relative w-full">
           <motion.div 
             className="w-full h-full relative rounded-[20px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
             initial={{ opacity: 0, scale: 0.95 }}

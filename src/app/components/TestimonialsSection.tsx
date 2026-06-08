@@ -4,7 +4,7 @@ import { testimonialsData } from '../data/testimonials';
 const testimonials = testimonialsData;
 
 const columns = [
-  { start: 0, end: 3, className: "animate-scroll-up-1" },
+  { start: 0, end: 3, className: "hidden md:block animate-scroll-up-1" },
   { start: 3, end: 6, className: "hidden md:block animate-scroll-up-2" },
   { start: 6, end: 9, className: "hidden lg:block animate-scroll-up-3" }
 ];
@@ -59,6 +59,9 @@ export function TestimonialsSection() {
         .animate-scroll-up-3 {
           animation: scroll-up 20s linear infinite; 
         }
+        .animate-scroll-up-mobile {
+          animation: scroll-up 60s linear infinite;
+        }
       `}</style>
       
       <div className="bg-[#0B0B0D] flex flex-col items-center justify-center py-16 px-4">
@@ -72,10 +75,21 @@ export function TestimonialsSection() {
         </div>
 
         <div className="relative w-full max-w-6xl overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0B0B0D] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0B0B0D] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute top-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-b from-[#0B0B0D] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-t from-[#0B0B0D] to-transparent z-10 pointer-events-none"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-[600px] overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[500px] md:h-[600px] overflow-hidden px-2 md:px-0">
+            {/* Mobile Column: Shows ALL testimonials so none are hidden from mobile users */}
+            <div className="block md:hidden animate-scroll-up-mobile">
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <TestimonialCard 
+                  key={`mob-${testimonial.id}-${index}`} 
+                  testimonial={testimonial} 
+                />
+              ))}
+            </div>
+
+            {/* Desktop Columns */}
             {columns.map((col, colIndex) => {
               const columnTestimonials = [
                 ...testimonials.slice(col.start, col.end), 

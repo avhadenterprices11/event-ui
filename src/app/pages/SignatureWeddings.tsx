@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { useRef, useState } from 'react';
-import { ArrowRight, Star, Sparkles, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin, Sparkles } from 'lucide-react';
 import { Link } from 'react-router';
 
 const weddings = [
@@ -38,48 +38,49 @@ export default function SignatureWeddings() {
     offset: ["start start", "end end"]
   });
 
-  const heroY = useTransform(scrollYProgress, [0, 0.2], ["0%", "50%"]);
+  const heroY = useTransform(scrollYProgress, [0, 0.2], ["0%", "40%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
   return (
-    <div ref={containerRef} className="bg-[#050505] text-white min-h-screen font-sans selection:bg-[#C6A75E]/30">
+    <div ref={containerRef} className="bg-[#0B0B0D] text-white min-h-screen font-sans selection:bg-[#C6A75E]/30">
       {/* Hero Section */}
-      <section className="relative h-[100svh] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[70svh] w-full flex items-center justify-center overflow-hidden">
         <motion.div 
           style={{ y: heroY, opacity: heroOpacity }}
           className="absolute inset-0 z-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/20 to-[#050505] z-10" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(5,5,5,0.8)_100%)] z-10" />
+          {/* Removed the heavy black gradient overlays, kept a very light fade at the bottom for text readability */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0B0B0D] to-transparent z-10 pointer-events-none" />
+          
           <motion.img 
-            initial={{ scale: 1.1 }}
+            initial={{ scale: 1.05 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 2.5, ease: "easeOut" }}
+            transition={{ duration: 3, ease: "easeOut" }}
             src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" 
-            className="w-full h-full object-cover grayscale-[30%] opacity-70"
+            className="w-full h-full object-cover"
             alt="Luxury Wedding Hero"
           />
         </motion.div>
 
-        <div className="relative z-20 flex flex-col items-center justify-center w-full px-6 text-center mt-20">
+        <div className="relative z-20 flex flex-col items-center justify-center w-full px-6 text-center mt-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center gap-3 mb-8"
+            className="flex items-center gap-3 mb-6"
           >
-            <div className="w-12 h-[1px] bg-[#C6A75E]/50" />
-            <span className="text-[#C6A75E] text-[9px] uppercase tracking-[0.4em] font-medium">
+            <div className="w-12 h-[1px] bg-[#C6A75E]" />
+            <span className="text-[#C6A75E] text-xs uppercase tracking-[0.4em] font-medium drop-shadow-md">
               The Exclusive Collection
             </span>
-            <div className="w-12 h-[1px] bg-[#C6A75E]/50" />
+            <div className="w-12 h-[1px] bg-[#C6A75E]" />
           </motion.div>
           
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[14vw] md:text-[9vw] font-serif font-light leading-[0.85] tracking-tight mb-8"
+            className="text-[12vw] md:text-[8vw] font-serif font-light leading-[0.9] tracking-tight mb-8 text-[#F5F5F5] drop-shadow-xl"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Signature <br />
@@ -89,69 +90,67 @@ export default function SignatureWeddings() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 1 }}
-            className="max-w-xl mx-auto backdrop-blur-sm bg-white/[0.02] border border-white/5 p-6 md:p-8 rounded-3xl"
+            transition={{ delay: 0.8, duration: 1 }}
+            className="max-w-2xl mx-auto"
           >
-            <p className="text-white/60 text-sm md:text-base font-light tracking-wide leading-relaxed">
+            <p className="text-[#E0E0E0] text-lg md:text-xl font-medium tracking-wide leading-relaxed drop-shadow-md">
               Curating architectural, cinematic, and timeless celebrations across the globe. We explore the alchemy of space, emotion, and heritage.
             </p>
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Professional Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 z-20"
+          transition={{ delay: 1.2, duration: 1 }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
         >
-          <span className="text-white/30 text-[9px] uppercase tracking-[0.3em] font-medium" style={{ writingMode: 'vertical-rl' }}>Scroll to Explore</span>
+          <span className="text-[#C6A75E] text-[10px] uppercase tracking-[0.3em] font-semibold">Discover</span>
           <motion.div 
-            animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[1px] h-16 bg-gradient-to-b from-transparent via-[#C6A75E] to-transparent relative overflow-hidden"
+            className="w-[1px] h-12 bg-gradient-to-b from-[#C6A75E] to-transparent"
           />
         </motion.div>
       </section>
 
-      {/* Editorial Content - Hover Gallery (One Frame) */}
-      <HoverGallery weddings={weddings} />
+      {/* Editorial Content - Premium Showcase Gallery */}
+      <PremiumShowcaseGallery weddings={weddings} />
 
       {/* Final CTA */}
-      <section className="h-[100svh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden bg-[#050505]">
+      <section className="py-16 md:py-20 flex flex-col items-center justify-center text-center px-6 relative overflow-hidden bg-[#050505]">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(198,167,94,0.08)_0%,rgba(0,0,0,0)_70%)]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(198,167,94,0.06)_0%,rgba(0,0,0,0)_70%)]" />
         </div>
         
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-20%" }}
+          viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 flex flex-col items-center space-y-10 w-full max-w-4xl mx-auto"
+          className="relative z-10 flex flex-col items-center w-full max-w-3xl mx-auto"
         >
-          <Sparkles className="text-[#C6A75E] w-8 h-8 opacity-50" />
+          <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-[#C6A75E]/50 mb-8" />
           
-          <h2 className="text-6xl md:text-8xl font-serif font-light tracking-tighter leading-[0.9]" style={{ fontFamily: 'var(--font-heading)' }}>
-            Begin Your <br />
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-light tracking-tight leading-[0.9] text-[#F5F5F5] mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+            Begin Your <br className="md:hidden" />
             <span className="italic text-[#C6A75E]">Narrative.</span>
           </h2>
           
-          <p className="text-white/40 text-lg font-light max-w-lg">
-            Commission us to design your legacy. We accept a limited number of commissions each year.
+          <p className="text-[#A0A0A0] text-sm md:text-base font-light max-w-md tracking-wide leading-relaxed mb-10">
+            Commission us to design your legacy. We accept a limited number of commissions each year to ensure uncompromising excellence.
           </p>
 
-          <Link to="/contact" className="mt-8 group">
+          <Link to="/contact" className="group relative inline-flex items-center justify-center">
+            <div className="absolute inset-0 bg-[#C6A75E]/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="relative px-10 py-5 bg-transparent border border-[#C6A75E]/30 overflow-hidden rounded-full flex items-center gap-4 transition-colors hover:border-[#C6A75E]"
+              className="relative px-10 py-5 border border-[#C6A75E]/30 bg-transparent text-[#F5F5F5] font-semibold uppercase tracking-[0.25em] text-[10px] rounded-full hover:border-[#C6A75E] hover:bg-[#C6A75E]/5 transition-all duration-500 flex items-center gap-4"
             >
-              <div className="absolute inset-0 bg-[#C6A75E] translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
-              <span className="relative z-10 text-white group-hover:text-[#050505] text-xs font-bold uppercase tracking-[0.2em] transition-colors duration-500">
-                Inquire Now
-              </span>
-              <ArrowRight size={16} className="relative z-10 text-[#C6A75E] group-hover:text-[#050505] transition-colors duration-500" />
+              Inquire Now
+              <ArrowRight size={14} className="text-[#C6A75E] group-hover:translate-x-1 transition-transform duration-500" />
             </motion.button>
           </Link>
         </motion.div>
@@ -160,111 +159,106 @@ export default function SignatureWeddings() {
   );
 }
 
-function HoverGallery({ weddings }: { weddings: any[] }) {
-  const [hoveredIndex, setHoveredIndex] = useState<number>(0);
+function PremiumShowcaseGallery({ weddings }: { weddings: any[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative h-[100svh] w-full bg-[#050505] overflow-hidden flex flex-col md:flex-row z-20">
-      {weddings.map((wedding, index) => {
-        const isActive = hoveredIndex === index;
-        
-        return (
-          <motion.div
-            key={index}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onClick={() => setHoveredIndex(index)}
-            animate={{ flex: isActive ? 3 : 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-full w-full overflow-hidden border-b md:border-b-0 md:border-r border-white/10 last:border-0 cursor-pointer group"
-          >
-            {/* Image */}
-            <motion.div 
-              animate={{ scale: isActive ? 1.05 : 1.15 }}
-              transition={{ duration: 3, ease: "easeOut" }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <img 
-                src={wedding.image} 
-                alt={wedding.title} 
-                className="w-full h-full object-cover"
-              />
-              <div className={`absolute inset-0 transition-opacity duration-1000 ${isActive ? 'opacity-50' : 'opacity-80'} bg-gradient-to-t from-[#050505] via-[#050505]/40 to-[#050505]/20`} />
-            </motion.div>
+    <section className="relative w-full bg-[#050505] py-24 md:py-32 px-6 md:px-12 lg:px-24 border-t border-white/10 z-20">
+      {/* Section Header for clear separation */}
+      <div className="mb-20 md:mb-32 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+        <div>
+           <div className="flex items-center gap-4 mb-6">
+             <div className="w-8 h-[1px] bg-[#C6A75E]" />
+             <span className="text-[#C6A75E] text-xs uppercase tracking-[0.3em] font-semibold">Archive</span>
+           </div>
+           <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light tracking-tight text-[#F5F5F5]" style={{ fontFamily: 'var(--font-heading)' }}>
+             Featured <br className="hidden md:block" />
+             <i className="text-[#C6A75E]">Commissions.</i>
+           </h2>
+        </div>
+        <p className="text-[#A0A0A0] max-w-sm text-sm md:text-base leading-relaxed font-light">
+          Explore our most distinguished celebrations. Each event is a masterclass in custom design, curated for the world's most discerning families and visionaries.
+        </p>
+      </div>
 
-            {/* Content Container */}
-            <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end z-10">
-               <div className="flex flex-col gap-4">
-                  {/* Header / Meta */}
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#C6A75E] text-[10px] font-medium uppercase tracking-[0.3em]">
-                      0{index + 1}
-                    </span>
-                    <div className="h-[1px] w-6 md:w-12 bg-white/20" />
-                    <div className="flex items-center gap-2 text-white/60 text-[10px] uppercase tracking-widest whitespace-nowrap">
-                      <Star size={10} className="fill-[#C6A75E] text-[#C6A75E]" />
-                      <span className="hidden md:inline">{wedding.stat}</span>
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h3 
-                    className={`text-3xl md:text-5xl lg:text-7xl font-serif font-light tracking-tighter text-white leading-[1.0] transition-all duration-700 ease-[0.22,1,0.36,1] ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-60'}`}
-                    style={{ fontFamily: 'var(--font-heading)' }}
-                  >
-                    {wedding.title}
-                  </h3>
-
-                  {/* Expandable Content */}
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pt-4 space-y-6 pb-2">
-                          <p className="text-white/60 text-sm md:text-base font-light leading-relaxed max-w-md">
-                            {wedding.description}
-                          </p>
-                          
-                          <div className="flex items-center gap-4 text-white/40 text-[10px] uppercase tracking-widest">
-                            <MapPin size={12} />
-                            {wedding.location}
-                          </div>
-
-                          <div className="inline-flex items-center gap-4 mt-4 group/btn cursor-pointer">
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:border-[#C6A75E] group-hover/btn:bg-[#C6A75E]/10 transition-colors">
-                              <ArrowRight size={14} className="text-white group-hover/btn:text-[#C6A75E] transition-colors" />
+      <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+        {/* Left: Interactive Editorial List */}
+        <div className="w-full lg:w-5/12 flex flex-col justify-center">
+          <div className="flex flex-col border-t border-white/10">
+            {weddings.map((wedding, idx) => (
+              <div 
+                key={idx} 
+                onMouseEnter={() => setActiveIndex(idx)}
+                className={`group py-8 md:py-10 border-b border-white/10 cursor-pointer transition-all duration-500 ${activeIndex === idx ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}
+              >
+                <div className="flex items-start">
+                  <span className={`text-[#C6A75E] text-[10px] md:text-xs font-medium uppercase tracking-[0.2em] mt-2 transition-transform duration-500 ${activeIndex === idx ? 'translate-x-2' : ''}`}>
+                    0{idx + 1}
+                  </span>
+                  <div className="flex-1 ml-8 md:ml-12">
+                    <h3 
+                      className={`text-3xl md:text-4xl lg:text-5xl font-serif text-[#F5F5F5] font-light tracking-tight mb-4 transition-transform duration-500 ${activeIndex === idx ? 'translate-x-2' : ''}`} 
+                      style={{ fontFamily: 'var(--font-heading)' }}
+                    >
+                      {wedding.title}
+                    </h3>
+                    
+                    <AnimatePresence>
+                      {activeIndex === idx && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pl-2 border-l border-[#C6A75E]/30 mt-6 mb-2">
+                            <p className="text-[#A0A0A0] text-sm md:text-base font-light leading-relaxed mb-6 max-w-md pl-4">
+                              {wedding.description}
+                            </p>
+                            <div className="flex flex-wrap gap-x-8 gap-y-4 text-[10px] md:text-xs uppercase tracking-widest text-white/50 pl-4">
+                              <span className="flex items-center gap-2"><MapPin size={14} className="text-[#C6A75E]"/> {wedding.location}</span>
+                              <span className="flex items-center gap-2"><Sparkles size={14} className="text-[#C6A75E]"/> {wedding.stat}</span>
+                              <span className="text-[#C6A75E]">{wedding.year}</span>
                             </div>
-                            <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em] group-hover/btn:text-[#C6A75E] transition-colors">
-                              Explore Archive
-                            </span>
                           </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-               </div>
-            </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12">
+            <Link to="/portfolio" className="inline-flex items-center gap-3 text-[#C6A75E] text-xs font-bold uppercase tracking-widest hover:text-white transition-colors group">
+              View Full Portfolio
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
 
-            {/* Giant Year in Background (visible when active) */}
-            <motion.div 
-              animate={{ 
-                opacity: isActive ? 1 : 0,
-                x: isActive ? 0 : 50,
-                scale: isActive ? 1 : 0.95
-              }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="absolute top-1/2 -translate-y-1/2 right-0 text-[12vh] md:text-[20vh] font-serif italic text-white/[0.03] select-none pointer-events-none z-0 pr-8 md:pr-12 hidden sm:block leading-none whitespace-nowrap" 
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              {wedding.year}
-            </motion.div>
-          </motion.div>
-        );
-      })}
+        {/* Right: Massive Pristine Image Frame */}
+        <div className="w-full lg:w-7/12 relative h-[50vh] md:h-[60vh] lg:h-[80vh] bg-[#111114] overflow-hidden rounded-sm group">
+           <AnimatePresence mode="wait">
+             <motion.img
+               key={activeIndex}
+               src={weddings[activeIndex].image}
+               initial={{ opacity: 0, scale: 1.05 }}
+               animate={{ opacity: 1, scale: 1 }}
+               exit={{ opacity: 0 }}
+               transition={{ duration: 0.8, ease: "easeInOut" }}
+               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105"
+               alt={weddings[activeIndex].title}
+             />
+           </AnimatePresence>
+           
+           {/* Subtle Inner Shadow and lighting for premium framing */}
+           <div className="absolute inset-0 border border-white/10 pointer-events-none rounded-sm z-10" />
+           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D]/40 to-transparent pointer-events-none z-10" />
+        </div>
+      </div>
     </section>
   );
 }

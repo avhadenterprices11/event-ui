@@ -78,21 +78,21 @@ export function Footer() {
         </div>
 
         {/* Main Link Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 md:mb-24">
 
           {/* Contact Core */}
           <div className="lg:col-span-4">
-            <h4 className="text-[#F5F5F5] text-sm font-semibold uppercase tracking-[0.2em] mb-8">Direct Access</h4>
-            <ul className="space-y-6">
+            <h4 className="text-[#F5F5F5] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-6 md:mb-8">Direct Access</h4>
+            <ul className="space-y-5 md:space-y-6">
               {footerLinks.contact.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <li key={index} className="flex items-start gap-4 group cursor-pointer">
-                    <a href={item.href} target={item.href.startsWith('http') ? '_blank' : '_self'} rel="noreferrer" className="flex items-start gap-4">
+                  <li key={index} className="flex items-start gap-3 md:gap-4 group cursor-pointer">
+                    <a href={item.href} target={item.href.startsWith('http') ? '_blank' : '_self'} rel="noreferrer" className="flex items-start gap-3 md:gap-4 w-full">
                       <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-colors group-hover:border-[#C6A75E]/50 group-hover:bg-[#C6A75E]/10 shrink-0">
                         <Icon className="w-3.5 h-3.5 text-[#C6A75E]" />
                       </div>
-                      <span className="text-[#B8B8B8] text-base font-light mt-1 transition-colors group-hover:text-white">
+                      <span className="text-[#B8B8B8] text-sm md:text-base font-light mt-1 md:mt-1.5 transition-colors group-hover:text-white break-words">
                         {item.text}
                       </span>
                     </a>
@@ -103,16 +103,16 @@ export function Footer() {
           </div>
 
           {/* Navigation Columns */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-12 lg:gap-8">
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-y-10 gap-x-6 lg:gap-8 mt-8 md:mt-0">
             {/* The Typologies */}
-            <div>
-              <h4 className="text-[#F5F5F5] text-sm font-semibold uppercase tracking-[0.2em] mb-8">Typologies</h4>
-              <ul className="space-y-4">
+            <div className="col-span-2 sm:col-span-1">
+              <h4 className="text-[#F5F5F5] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-6 md:mb-8">Typologies</h4>
+              <ul className="space-y-3 md:space-y-4">
                 {footerLinks.services.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.path}
-                      className="group flex items-center justify-between text-[#B8B8B8] hover:text-[#C6A75E] transition-colors duration-300 text-base font-light"
+                      className="group flex items-center justify-between text-[#B8B8B8] hover:text-[#C6A75E] transition-colors duration-300 text-sm md:text-base font-light"
                     >
                       <span className="relative overflow-hidden">
                         {link.label}
@@ -126,13 +126,13 @@ export function Footer() {
 
             {/* The Maison */}
             <div>
-              <h4 className="text-[#F5F5F5] text-sm font-semibold uppercase tracking-[0.2em] mb-8">The Maison</h4>
-              <ul className="space-y-4">
+              <h4 className="text-[#F5F5F5] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-6 md:mb-8">The Maison</h4>
+              <ul className="space-y-3 md:space-y-4">
                 {footerLinks.company.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.path}
-                      className="group flex items-center justify-between text-[#B8B8B8] hover:text-[#C6A75E] transition-colors duration-300 text-base font-light"
+                      className="group flex items-center justify-between text-[#B8B8B8] hover:text-[#C6A75E] transition-colors duration-300 text-sm md:text-base font-light"
                     >
                       <span className="relative overflow-hidden">
                         {link.label}
@@ -146,13 +146,13 @@ export function Footer() {
 
             {/* Directory */}
             <div>
-              <h4 className="text-[#F5F5F5] text-sm font-semibold uppercase tracking-[0.2em] mb-8">Directory</h4>
-              <ul className="space-y-4">
+              <h4 className="text-[#F5F5F5] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-6 md:mb-8">Directory</h4>
+              <ul className="space-y-3 md:space-y-4">
                 {footerLinks.quickLinks.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.path}
-                      className="group flex items-center justify-between text-[#B8B8B8] hover:text-[#C6A75E] transition-colors duration-300 text-base font-light"
+                      className="group flex items-center justify-between text-[#B8B8B8] hover:text-[#C6A75E] transition-colors duration-300 text-sm md:text-base font-light"
                     >
                       <span className="relative overflow-hidden">
                         {link.label}
